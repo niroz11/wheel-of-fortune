@@ -2,11 +2,18 @@
 *:after,
 *:before {
   box-sizing: border-box;
-  height: 100%;
 }
 
 
-.main-board{
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+.word-bank-board{
 	background: pink;
 	height: 20%;
 
@@ -15,6 +22,9 @@
 .letters-board{
 	background: #add8e6;
 	height: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .player-display-board{
 	display: flex;
@@ -42,4 +52,10 @@
 	background: #8f8293;
 	height: 100px;
 	width:100px;
+}
+
+td{
+	border: 1px solid black;
+	height: 50px;
+	width: 50px;
 }
