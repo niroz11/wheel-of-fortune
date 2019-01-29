@@ -24,7 +24,6 @@ body {
 	height: 60%;
 	display: flex;
 	justify-content: center;
-	align-items: center;
 }
 .player-display-board{
 	display: flex;
@@ -56,6 +55,10 @@ body {
 
 td{
 	border: 1px solid black;
-	height: 50px;
-	width: 50px;
+	height: 80px;
+	width: 80px;
+}
+
+td:empty {
+	visibility: hidden;
 }
