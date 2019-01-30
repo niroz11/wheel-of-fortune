@@ -7,12 +7,15 @@ class Wheel{
 
 	}
 	spinWheel(){
-		let wheelValue = Math.floor(Math.random() * 6) + 1;
-		let wheelSpin =  wheelValue * (Math.floor(Math.random() * 6) + 360);
+		this.wheelValue = Math.floor(Math.random() * 6) + 1;
+		let wheelSpin =  this.wheelValue * (Math.random() * 1080);
 		domUpdates.spinAnimation(wheelSpin)
 		setTimeout(() => {
+			domUpdates.displayWheelValue(this.wheelValue)
+		}, 5000)
+		setTimeout(() => {
 			domUpdates.removeWheel()
-		}, 10000)
+		}, 8000)
 	}
 	addValueToPlayer(){
 		domUpdates.addScore();

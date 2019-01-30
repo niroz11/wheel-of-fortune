@@ -6,17 +6,24 @@ class DomUpdates{
 				<div class="wheel">
 					<p>hello</p>
 				</div>
-				<button class="
-				spin-button"></button>
-			</section>
-			`
+				<button class="spin-button">SPIN</button>
+			</section>`
 		)
 		$("body").append(div);
 	}
 	spinAnimation(num){
 		$(".wheel").css("transform", `rotate(${num}deg)`);
 	}
+	displayWheelValue(value){
+		let div = $(
+			`<div class="show-value">
+				<h2>${value}</h2>
+			</div>`
+		)
+		$(".wheel-section").append(div);
+	}
 	removeWheel(){
-		$(".wheel-section").remove();
+		$(".wheel-section").remove()
+		$(".show-value").remove();
 	}
 }
