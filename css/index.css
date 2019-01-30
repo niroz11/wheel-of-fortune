@@ -62,3 +62,19 @@ td{
 td:empty {
 	visibility: hidden;
 }
+
+.wheel-section {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate( -50%, -50%);
+	background-color: pink;
+}
+
+.wheel {
+	width: 100px;
+	height: 100px;
+	transition: 5s cubic-bezier(0.075, 0.82, 0.165, 1);
+	background-color: yellow;
+	border: 5px solid dotted dashed inset white;
+}
