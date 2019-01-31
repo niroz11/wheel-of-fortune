@@ -26,4 +26,9 @@ class DomUpdates{
 		$(".wheel-section").remove()
 		$(".show-value").remove();
 	}
+	addPlayerName(){
+		$(".box-one").text($('.name-input-one').val());
+		$(".box-two").text($('.name-input-two').val());
+		$(".box-three").text($('.name-input-three').val());
+	}
 }

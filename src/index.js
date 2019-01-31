@@ -15,7 +15,9 @@ $(window).on("click", (e) => {
 $('#submit-btn').on("click", (e) => { 
 
 	e.preventDefault();
-	game.addPlayer()
+	game.addPlayer();
+	domUpdates.addPlayerName();
+
 
 }); 
 

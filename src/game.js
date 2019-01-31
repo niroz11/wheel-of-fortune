@@ -11,12 +11,8 @@ class Game{
 		this.players.push(new Player($('.name-input-three').val()))
 		}
 		
-
-		
-
-		
 	addBoard(){
-		$('.board-piece').text('hello world');
+	$('.board-piece').text('hello world');
 	}
 
 }
