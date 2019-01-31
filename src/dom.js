@@ -26,4 +26,12 @@ class DomUpdates{
 		$(".wheel-section").remove()
 		$(".show-value").remove();
 	}
+	displayname(){
+		$(".input").remove()
+		$("#player-name").remove()
+		for(var i = 0; i < 3; i++){
+			$(".display-name").eq(i).text(game.player[i].name)
+			$(".display-score").eq(i).text(game.player[i].account)
+		}
+	}
 }
