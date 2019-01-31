@@ -23,7 +23,7 @@ class DomUpdates{
 		$(".wheel-section").append(div);
 	}
 	removeWheel(){
-		$(".wheel-section").remove()
+		$(".wheel-section").remove();
 		$(".show-value").remove();
 	}
 	displayname(){
