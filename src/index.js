@@ -1,6 +1,7 @@
 let game = new Game();
 let domUpdates = new DomUpdates;
 let wheel;
+let round;
 
 $('#wheel').on("click", domUpdates.displayWheel);
 

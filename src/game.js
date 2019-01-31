@@ -11,14 +11,14 @@ class Game{
 		this.player.push(new Player($(".playerName2").val()))
 		domUpdates.displayname()
 		this.parseData()
+		round.setupround()
 	}
 	addBoard(){
 		$('.board-piece').text('hello world');
 	}
 	parseData(){
-		let dataValue = Object.values(data)
-		dataValue.shift
-		this.gamedata = dataValue 
+		this.gamedata = Object.values(data) 
 		wheel = new Wheel(this.gamedata[1]);
+		round = new Round(this.gamedata[2]);
 	}
 }

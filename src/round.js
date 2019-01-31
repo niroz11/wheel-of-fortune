@@ -1,5 +1,8 @@
 class Round{
-    constructor(){
-        currentphrase = [];
+    constructor(data){
+        this.roundData;
+    }
+    setupround(){
+        wheel.SetWheelValue()
     }
 }
