@@ -11,3 +11,14 @@ $(window).on("click", (e) => {
         wheel.spinWheel()
     }
 });
+
+$('#submit-btn').on("click", (e) => { 
+
+	e.preventDefault();
+	game.addPlayer()
+
+}); 
+
+
+
+

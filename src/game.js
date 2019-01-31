@@ -1,14 +1,23 @@
 class Game{
 	constructor(){
-		this.player = []
+		this.players = [];
 		this.playerInPlay = 0;
+
 	}
 	addPlayer(){
-		for(var i = 0; i < 3; i++){
-			this.player.push()
+		
+		this.players.push(new Player($('.name-input-one').val()))
+		this.players.push(new Player($('.name-input-two').val()))
+		this.players.push(new Player($('.name-input-three').val()))
 		}
-	}
+		
+
+		
+
+		
 	addBoard(){
 		$('.board-piece').text('hello world');
 	}
+
 }
+
