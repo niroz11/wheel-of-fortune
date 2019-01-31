@@ -111,3 +111,7 @@ td:empty {
 	font-size: 5em;
 	transform: translate( -50%, -50%);
 }
+
+.wheelpic {
+	height: 200px;
+}

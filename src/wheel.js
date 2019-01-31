@@ -1,5 +1,5 @@
 class Wheel{
-	constructor(){
+	constructor(data){
 		this.wheelValue = data;
 	}
 	SetWheelValue(){
@@ -20,7 +20,8 @@ class Wheel{
 		}, 8000)
 	}
 	addValueToPlayer(valuePick){
-		game.player[game.playerInPlay].account += valuePick
+		// game.player[game.playerInPlay].account += valuePick
 		// domUpdates.addScore();
+		return true;
 	}
 }

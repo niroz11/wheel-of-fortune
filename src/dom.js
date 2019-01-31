@@ -4,7 +4,7 @@ class DomUpdates{
 			`<section class="wheel-section">
 				<h2>player one</h2>
 				<div class="wheel">
-					<p>hello</p>
+					<img class="wheelpic" src="wheel.png"/>
 				</div>
 				<button class="spin-button">SPIN</button>
 			</section>`

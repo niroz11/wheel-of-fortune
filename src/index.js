@@ -1,6 +1,7 @@
 let game = new Game();
-let wheel = new Wheel()
-let domUpdates = new DomUpdates();
+let domUpdates = new DomUpdates;
+let wheel;
+
 $('#wheel').on("click", domUpdates.displayWheel);
 
 $(window).on("click", (e) => {
@@ -12,5 +13,5 @@ $(window).on("click", (e) => {
 
 $("#player-name").on("click", (e) => {
     e.preventDefault();
-    game.addPlayer()
+    game.addPlayer();
 });
