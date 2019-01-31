@@ -4,9 +4,10 @@ class Game{
 		this.playerInPlay = 0;
 	}
 	addPlayer(){
-		for(var i = 0; i < 3; i++){
-			this.player.push()
-		}
+		// refactor this later into a foreach loop
+		this.player.push(new Player($(".playerName0").val()))
+		this.player.push(new Player($(".playerName1").val()))
+		this.player.push(new Player($(".playerName2").val()))
 	}
 	addBoard(){
 		$('.board-piece').text('hello world');

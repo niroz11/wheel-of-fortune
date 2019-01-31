@@ -1,13 +1,16 @@
 let game = new Game();
 let wheel = new Wheel()
 let domUpdates = new DomUpdates();
-
-$('#btn').on("click", domUpdates.displayWheel);
+$('#wheel').on("click", domUpdates.displayWheel);
 
 $(window).on("click", (e) => {
-    e.preventDefault
+    e.preventDefault()
     if($(e.target).hasClass("spin-button")){
-        console.log("im working")
         wheel.spinWheel()
     }
+});
+
+$("#player-name").on("click", (e) => {
+    e.preventDefault();
+    game.addPlayer()
 });
