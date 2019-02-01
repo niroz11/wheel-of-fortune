@@ -8,6 +8,7 @@ class Game{
 		domUpdates.displayOption()
 		this.addPlayer()
 		round.setupround()
+		round.displayRound()
 	}
 	addPlayer(){
 		// refactor this later into a foreach loop

@@ -2,10 +2,14 @@ class Round{
     constructor(data){
         this.gameData = data;
         this.gameQuestions;
+        this.gameround = "One";
     }
     setupround(){
         wheel.SetWheelValue()
         this.parseDataForGame()
+    }
+    displayRound(){
+        domUpdates.displayRound(this.gameround)
     }
     parseDataForGame(){
         this.gameQuestions = Object.keys(this.gameData).reduce((acc, round) => {

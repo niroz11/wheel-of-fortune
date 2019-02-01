@@ -63,6 +63,8 @@ td:empty {
 	visibility: hidden;
 }
 
+/* this is the css for the whell */
+
 .wheel-section {
 	position: absolute;
 	height: 400px;
@@ -114,4 +116,23 @@ td:empty {
 
 .wheelpic {
 	height: 200px;
+}
+/* this is the css for the round change*/
+
+.round-display {
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	animation: round 5s cubic-bezier(0.1, 0.8, 1, 0.1);
+	border: 3px solid white;
+	border-radius: 25px
+}
+
+@keyframes round{
+	0%{
+		left: 0%;
+	}
+	100%{
+		left: 110%;
+	}
 }
