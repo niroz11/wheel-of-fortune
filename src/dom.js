@@ -44,4 +44,9 @@ class DomUpdates{
 			$(".display-score").eq(i).text(game.player[i].account)
 		}
 	}
+	displayPuzzle(round){
+		console.log('puzzle shown');
+		console.log(round); 
+
+	}
 }
