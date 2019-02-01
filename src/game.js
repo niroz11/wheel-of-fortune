@@ -4,6 +4,11 @@ class Game{
 		this.playerInPlay = 0;
 		this.gamedata;
 	}
+	setGame(){
+		domUpdates.displayOption()
+		this.addPlayer()
+		round.setupround()
+	}
 	addPlayer(){
 		// refactor this later into a foreach loop
 		this.player.push(new Player($(".playerName0").val()))
@@ -11,7 +16,6 @@ class Game{
 		this.player.push(new Player($(".playerName2").val()))
 		domUpdates.displayname()
 		this.parseData()
-		round.setupround()
 	}
 	addBoard(){
 		$('.board-piece').text('hello world');

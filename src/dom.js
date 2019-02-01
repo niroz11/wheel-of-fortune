@@ -8,8 +8,18 @@ class DomUpdates{
 				</div>
 				<button class="spin-button">SPIN</button>
 			</section>`
-		)
+		);
 		$("body").append(div);
+	}
+	displayOption(){
+		let div = $(
+			`<div>
+				<button>buy a vowel</button>
+				<button>guess the phrase</button>
+				<button class="wheel-display">spin wheel</button>
+			</div>`
+		);
+		$(".letters-board").append(div);
 	}
 	spinAnimation(num){
 		$(".wheel").css("transform", `rotate(${num}deg)`);
