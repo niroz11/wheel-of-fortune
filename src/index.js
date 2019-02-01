@@ -3,7 +3,12 @@ let domUpdates = new DomUpdates;
 let wheel;
 let round;
 
-$('#wheel').on("click", domUpdates.displayWheel);
+$(window).on("click", (e) => {
+    e.preventDefault()
+    if($(e.target).hasClass("wheel-display")){
+        domUpdates.displayWheel()
+    }
+})
 
 $(window).on("click", (e) => {
     e.preventDefault()
@@ -14,5 +19,5 @@ $(window).on("click", (e) => {
 
 $("#player-name").on("click", (e) => {
     e.preventDefault();
-    game.addPlayer();
+    game.setGame();
 });
