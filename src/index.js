@@ -2,7 +2,8 @@ let game = new Game();
 let domUpdates = new DomUpdates;
 let wheel;
 let round;
-let board = new Board()
+let board = new Board(); 
+
 
 
 // this is to display the guess the whole phrase
@@ -58,8 +59,22 @@ $(window).on("keydown", (e) => {
 })
 
 $(window).on("keyup", (e) => {
-    console.log(e.target, "heyy");
     e.preventDefault();
-    $('.display-used-letters').append(e.key)
+    
+    var keyCodeRange = (e.keyCode >64 && e.keyCode < 91)
+    var range = (!game.usedLetters.includes(e.key));
+    
+    
+    
+    
+    if( keyCodeRange && range ){
+        console.log(keyCodeRange, "keycode");
+        console.log(range, "range");
+        console.log(game.usedLetters, "used letters")
+        
+        game.usedLetters.push(e.key);
+    $('.display-used-letters').append(e.key);
+    }
+    
 
 })
