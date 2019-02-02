@@ -25,11 +25,22 @@ class DomUpdates{
 		let div = $(
 			`<div>
 				<button>buy a vowel</button>
-				<button>guess the phrase</button>
+				<button class="guess-display">guess the phrase</button>
 				<button class="wheel-display">spin wheel</button>
 			</div>`
 		);
 		$(".letters-board").append(div);
+	}
+	// this is dom for the guess the whole phrase
+	displayGuessphrase(){
+		let div = $(
+			`<section class="guess-phrase-section">
+				<h2>Guess The Phrse</h2>
+				<input type="type"/>
+				<button class="submit-guess-phrase">Submit</button>
+			</section>`
+		)
+		$("body").append(div);
 	}
 	// this is dom for the wheel
 	displayWheel(){
