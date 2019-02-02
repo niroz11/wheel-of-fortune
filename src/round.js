@@ -5,6 +5,7 @@ class Round{
         this.gameround = "One";
     }
     setupround(){
+        domUpdates.displayRoundClue(this.gameQuestions.shift())
         wheel.SetWheelValue()
         this.parseDataForGame()
     }

@@ -9,11 +9,14 @@ class Game{
 		domUpdates.displayOption()
 		// domUpdates.displayPuzzle();
 		this.addPlayer()
+		round.parseDataForGame()
 		round.setupround()
 		round.displayRound()
 	}
 	addPlayer(){
-		// refactor this later into a foreach loop
+		if(!$(".input:contains('')")){
+			console.log("this work try it ")
+		}
 		this.player.push(new Player($(".playerName0").val()))
 		this.player.push(new Player($(".playerName1").val()))
 		this.player.push(new Player($(".playerName2").val()))

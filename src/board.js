@@ -1,6 +1,6 @@
 class Board{
 	constructor(){
-		this.roundPhrase;
+		this.roundPhrase = data;
 	}
 	grabPhraseForRound(){
 		this.roundPhrase =(round.gameQuestions.shift())
@@ -9,7 +9,7 @@ class Board{
 		// this should place the clu
 	}
 	placeClueOnTheGameO(){
-
+		domUpdates.DisplayRoundClue(this.roundPhrase)
 	}
 	checkLetter(){
 
