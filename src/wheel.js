@@ -9,7 +9,6 @@ class Wheel{
 		for (let i = randomValue.length - 1; i > 0; i--) {
 			const r = Math.floor(Math.random() * (i + 1));
 			[randomValue[i], randomValue[r]] = [randomValue[r], randomValue[i]];
-			console.log(randomValue)
 		}
 		for(var i = 0; i < 6; i++){
 			this.currentWheelValue.push(randomValue.shift());

@@ -1,15 +1,15 @@
 class Board{
-	constructor(){
+	constructor(data){
 		this.roundPhrase = data;
 	}
 	grabPhraseForRound(){
 		this.roundPhrase =(round.gameQuestions.shift())
 	}
 	placePhraseOnBoard(){
-		// this should place the clu
+		domUpdates.displayRoundPhrase(this.roundPhrase)
 	}
-	placeClueOnTheGameO(){
-		domUpdates.DisplayRoundClue(this.roundPhrase)
+	placeClueOnTheGame(){
+		domUpdates.displayRoundClue(this.roundPhrase)
 	}
 	checkLetter(){
 
