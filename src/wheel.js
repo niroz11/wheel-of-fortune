@@ -11,7 +11,7 @@ class Wheel{
 			[randomValue[i], randomValue[r]] = [randomValue[r], randomValue[i]];
 		}
 		for(var i = 0; i < 6; i++){
-			this.currentWheelValue.push(randomValue.shift())
+			this.currentWheelValue.push(randomValue.shift());
 		}
 	}
 	spinWheel(){
@@ -36,4 +36,8 @@ class Wheel{
 			//skip turn 
 		}
 	}
+}
+
+if(typeof module !== 'undefined'){
+	module.exports = Wheel;
 }

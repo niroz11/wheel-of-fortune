@@ -1,8 +1,29 @@
 import chai from 'chai';
 const expect = chai.expect;
+const Wheel = require('../src/wheel.js')
+const data = require('../src/data.js')
 
-describe('See if the tests are running', function() {
-  it('should return true', function() {
-    expect(true).to.equal(true);
-  });
+var wheel;
+describe('Wheel', function() {
+	
+  	beforeEach(function(){
+  		wheel = new Wheel([1,2,3,4,5,6]);
+  	})
+
+it('it should set wheel value', function(){
+	wheel.SetWheelValue();
+	expect(wheel.currentWheelValue).to.have.length(6);
+
+})
+
+
+
+
+
+
+
+
+
 });
+
+
