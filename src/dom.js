@@ -8,6 +8,10 @@ class DomUpdates{
 			$(".display-score").eq(i).text(game.player[i].account)
 		}
 	}
+	// this is going to display the round clue
+	displayRoundClue(clue){
+		$(".clue-banner").text(clue.category)
+	}
 	// this is dom for displaying the round
 	displayRound(round){
 		let div = $(
