@@ -3,12 +3,14 @@ class Game{
 		this.player = [];
 		this.playerInPlay = 0;
 		this.gamedata;
+		this.usedWords = [];
 	}
 	setGame(){
 		domUpdates.displayOption()
 		domUpdates.displayPuzzle();
 		this.addPlayer()
 		round.setupround()
+		round.displayRound()
 	}
 	addPlayer(){
 		// refactor this later into a foreach loop

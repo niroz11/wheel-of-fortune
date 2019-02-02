@@ -2,6 +2,7 @@
 *:after,
 *:before {
   box-sizing: border-box;
+  color: white;
 }
 
 
@@ -11,44 +12,44 @@ html {
 
 body {
 	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	background: radial-gradient(circle at bottom, navy 0, black 100%);
 }
 
 .word-bank-board{
-	background: pink;
 	height: 20%;
-
+	/* for the background add flat white spry can banner on it */
 }
 
 .letters-board{
-	background: #add8e6;
 	height: 60%;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 }
+
 .player-display-board{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	background: #CCCC;
 	height: 20%;
 }
 
-
-
 .player-one{
-	background: #f3c35b;
+	background: #83894f;
 	height:100px;
 	width:100px;
 }
 
 .player-two{
-	background: #b5796e; 
+	background: #83894f; 
 	height: 100px;
 	width: 100px;
 }
 
 .player-three{
-	background: #8f8293;
+	background: #83894f;
 	height: 100px;
 	width:100px;
 }
@@ -57,23 +58,27 @@ td{
 	border: 1px solid black;
 	height: 80px;
 	width: 80px;
+	background-color: #430580;
 }
 
 td:empty {
 	visibility: hidden;
 }
 
+/* this is the css for the whell */
+
 .wheel-section {
+	text-shadow: 2px 2px 5px #000000;
+	background-color: #be5502;
 	position: absolute;
 	height: 400px;
 	width: 800px;
 	left: 50%;
 	top: 50%;
 	transform: translate( -50%, -50%);
-	background-color: pink;
+	color: #df9f27;
 	border-radius: 25px;
-	border: 8px solid white;
-	box-shadow: inset 2px 2px 5px black;
+	border: 8px solid #ffffff;
 }
 
 .wheel-section h2 {
@@ -114,4 +119,69 @@ td:empty {
 
 .wheelpic {
 	height: 200px;
+}
+/* this is the css for the round change*/
+
+.round-display {
+	position: absolute;
+	top: 50%;
+	width: 150px;
+	transform: translate(-50%, -50%);
+	animation: round 5s cubic-bezier(0.1, 0.8, 1, 0.1);
+	border: 3px solid white;
+	border-radius: 25px
+}
+
+@keyframes round{
+	0%{
+		left: 0%;
+	}
+	100%{
+		left: 120%;
+	}
+}
+
+/* this is for displaying the guess phrase */
+
+.guess-phrase-section {
+	position: absolute;
+	text-shadow: 2px 2px 5px #000000;
+	background-color: #be5502;
+	height: 400px;
+	width: 800px;
+	left: 50%;
+	top: 50%;
+	transform: translate( -50%, -50%);
+	color: #df9f27;
+	border-radius: 25px;
+	border: 8px solid #ffffff;
+}
+
+/* this is where ill display the used words */
+.display-used-letters {
+	text-align: center;
+	font-size: 3em;
+	margin: 0px;
+}
+
+/* this is the dispaly for buy vowel */
+
+.buy-vowel-section {
+	position: absolute;
+	text-shadow: 2px 2px 5px #000000;
+	background-color: #be5502;
+	height: 400px;
+	width: 800px;
+	left: 50%;
+	top: 50%;
+	transform: translate( -50%, -50%);
+	color: #df9f27;
+	border-radius: 25px;
+	border: 8px solid #ffffff;
+}
+
+/* this is the dom for the option */
+.option-display {
+	display: flex;
+	justify-content: space-around;
 }

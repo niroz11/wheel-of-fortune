@@ -4,6 +4,7 @@ class Wheel{
 		this.currentWheelValue = [];
 	}
 	SetWheelValue(){
+		this.currentWheelValue =[]
 		let randomValue = this.wheelValue.slice()
 		for (let i = randomValue.length - 1; i > 0; i--) {
 			const r = Math.floor(Math.random() * (i + 1));
@@ -24,10 +25,10 @@ class Wheel{
 		setTimeout(() => {
 			this.addValueToPlayer(this.currentWheelValue[valuePick])
 			domUpdates.removeWheel()
-		}, 8000)
+		}, 7000)
 	}
 	addValueToPlayer(valuePick){
-		if(valuePick === "number"){
+		if(typeof valuePick === "number"){
 			//add points to 
 		}else if(valuePick === "BANKRUPT"){
 			//remove all money from account
