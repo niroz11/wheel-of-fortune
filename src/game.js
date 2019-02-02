@@ -3,7 +3,7 @@ class Game{
 		this.player = [];
 		this.playerInPlay = 0;
 		this.gamedata;
-		this.usedWords = [];
+		this.usedLetters = [];
 	}
 	setGame(){
 		domUpdates.displayOption()
