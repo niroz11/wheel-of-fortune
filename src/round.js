@@ -5,9 +5,12 @@ class Round{
         this.gameround = "One";
     }
     setupround(){
-        domUpdates.displayRoundClue(this.gameQuestions.shift())
+        board = new Board(this.gameQuestions)
         wheel.SetWheelValue()
         this.parseDataForGame()
+        board.grabPhraseForRound()
+        board.placeClueOnTheGame()
+        board.placePhraseOnBoard()
     }
     displayRound(){
         domUpdates.displayRound(this.gameround)
@@ -29,6 +32,10 @@ class Round{
             wheel.SetWheelValue()
             this.displayRound()
             break;
+            case "Four": 
+            this.gameround = "Bonus"
+            wheel.SetWheelValue()
+            this.displayRound()
         }
     }
     parseDataForGame(){
