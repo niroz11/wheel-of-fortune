@@ -25,7 +25,7 @@ class Game{
 		this.gamedata = Object.values(data) 
 		wheel = new Wheel(this.gamedata[1]);
 		round = new Round(this.gamedata[2]);
-		domUpdates.displayPuzzle(round.roundData.one_word_answersitems.(Math.floor(Math.random()*items.length)));
+		
 	}
 	checkGuess(round){
 		if(round.roundData.one_word_answers.includes($('.guess-input').val())){
