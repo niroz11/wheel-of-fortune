@@ -1,6 +1,6 @@
 class Round{
     constructor(data){
-        this.roundData;
+        this.roundData = data;
     }
     setupround(){
         wheel.SetWheelValue()

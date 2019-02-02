@@ -21,3 +21,8 @@ $("#player-name").on("click", (e) => {
     e.preventDefault();
     game.setGame();
 });
+
+$('.guess-button').on("click", (e) => {
+    e.preventDefault();
+    console.log('key pressed')
+})
