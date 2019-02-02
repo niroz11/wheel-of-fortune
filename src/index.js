@@ -56,3 +56,10 @@ $(window).on("click", (e) => {
 $(window).on("keydown", (e) => {
     board.checkVowel(e.key)
 })
+
+$(window).on("keyup", (e) => {
+    console.log(e.target, "heyy");
+    e.preventDefault();
+    $('.display-used-letters').append(e.key)
+
+})
