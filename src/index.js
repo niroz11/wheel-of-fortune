@@ -62,13 +62,15 @@ $(window).on("keyup", (e) => {
     e.preventDefault();
     
     var keyCodeRange = (e.keyCode >64 && e.keyCode < 91)
-    var range = (!game.usedLetters.includes(e.keyCode));
+    var range = (!game.usedLetters.includes(e.key));
     
     
     
     
     if( keyCodeRange && range ){
-        console.log("im letter")
+        console.log(keyCodeRange, "keycode");
+        console.log(range, "range");
+        console.log(game.usedLetters, "used letters")
         
         game.usedLetters.push(e.key);
     $('.display-used-letters').append(e.key);
