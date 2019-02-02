@@ -15,18 +15,20 @@ class DomUpdates{
 				<h2>Round ${round}</h2>
 			</div>`
 		)
+		$(".option").prop("disabled",true);
 		$("body").append(div)
-		setInterval(() => {
+		setTimeout(() => {
 			$(".round-display").remove()
+			$(".option").prop("disabled",false);
 		}, 5000)
 	}
 	// this is dom for the three buttons
 	displayOption(){
 		let div = $(
-			`<div>
-				<button class="vowel-display">buy a vowel</button>
-				<button class="guess-display">guess the phrase</button>
-				<button class="wheel-display">spin wheel</button>
+			`<div class="option-display">
+				<button class="option vowel-display">buy a vowel</button>
+				<button class="option guess-display">guess the phrase</button>
+				<button class="option wheel-display">spin wheel</button>
 			</div>`
 		);
 		$(".letters-board").append(div);
@@ -55,6 +57,9 @@ class DomUpdates{
 				</section>`
 		)
 		$("body").append(div);
+	}
+	removeVowelDisplay(){
+		$(".buy-vowel-section").remove()
 	}
 	// this is dom for the wheel
 	displayWheel(){

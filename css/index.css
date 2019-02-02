@@ -2,6 +2,7 @@
 *:after,
 *:before {
   box-sizing: border-box;
+  color: white;
 }
 
 
@@ -13,7 +14,7 @@ body {
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
-	background-color: #df9f27;
+	background: radial-gradient(circle at bottom, navy 0, black 100%);
 }
 
 .word-bank-board{
@@ -32,7 +33,6 @@ body {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	background: #CCCC;
 	height: 20%;
 }
 
@@ -58,7 +58,7 @@ td{
 	border: 1px solid black;
 	height: 80px;
 	width: 80px;
-	background-color: #83894f;
+	background-color: #430580;
 }
 
 td:empty {
@@ -137,7 +137,7 @@ td:empty {
 		left: 0%;
 	}
 	100%{
-		left: 110%;
+		left: 120%;
 	}
 }
 
@@ -178,4 +178,10 @@ td:empty {
 	color: #df9f27;
 	border-radius: 25px;
 	border: 8px solid #ffffff;
+}
+
+/* this is the dom for the option */
+.option-display {
+	display: flex;
+	justify-content: space-around;
 }

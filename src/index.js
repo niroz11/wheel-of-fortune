@@ -2,6 +2,7 @@ let game = new Game();
 let domUpdates = new DomUpdates;
 let wheel;
 let round;
+let board = new Board()
 
 
 // this is to display the guess the whole phrase
@@ -16,7 +17,6 @@ $(window).on("click", (e) => {
 $(window).on("click", (e) => {
     e.preventDefault()
     if($(e.target).hasClass("vowel-display")){
-        console.log("hello world")
         domUpdates.dispalyBuyValue()
     }
 })
@@ -54,5 +54,5 @@ $(window).on("click", (e) => {
 });
 
 $(window).on("keydown", (e) => {
-    console.log(e.key)
+    board.checkVowel(e.key)
 })

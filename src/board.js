@@ -11,5 +11,11 @@ class Board{
 	placeClueOnTheGameO(){
 
 	}
+	checkLetter(){
 
+	}
+	checkVowel(letter){
+		if(["a","b","c"].includes(letter))
+		domUpdates.removeVowelDisplay()
+	}
 }
