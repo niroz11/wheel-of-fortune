@@ -15,8 +15,9 @@ class DomUpdates{
 		let div = $(
 			`<div>
 				<button>buy a vowel</button>
-				<button>guess the phrase</button>
+				<button class="guess-button">guess the phrase</button>
 				<button class="wheel-display">spin wheel</button>
+				<input class="guess-input">Enter your guess </input>
 			</div>`
 		);
 		$(".letters-board").append(div);
