@@ -58,7 +58,7 @@ $(window).on("keydown", (e) => {
     board.checkVowel(e.key)
 })
 
-$(window).on("keyup", (e) => {
+$().on("keyup", (e) => {
     e.preventDefault();
     
     var keyCodeRange = (e.keyCode >64 && e.keyCode < 91)
@@ -68,9 +68,7 @@ $(window).on("keyup", (e) => {
     
     
     if( keyCodeRange && range ){
-        console.log(keyCodeRange, "keycode");
-        console.log(range, "range");
-        console.log(game.usedLetters, "used letters")
+        
         
         game.usedLetters.push(e.key);
     $('.display-used-letters').append(e.key);
@@ -78,3 +76,12 @@ $(window).on("keyup", (e) => {
     
 
 })
+
+
+
+
+
+
+
+
+
