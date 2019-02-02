@@ -24,7 +24,7 @@ class DomUpdates{
 	displayOption(){
 		let div = $(
 			`<div>
-				<button>buy a vowel</button>
+				<button class="vowel-display">buy a vowel</button>
 				<button class="guess-display">guess the phrase</button>
 				<button class="wheel-display">spin wheel</button>
 			</div>`
@@ -39,6 +39,20 @@ class DomUpdates{
 				<input type="type"/>
 				<button class="submit-guess-phrase">Submit</button>
 			</section>`
+		)
+		$("body").append(div);
+	}
+
+	closePhraseGuess(){
+		$(".guess-phrase-section").remove()
+	}
+
+	//this is the dom for buy a value 
+	dispalyBuyValue(){
+		let div = $(
+				`<section class="buy-vowel-section">
+					<h2>Use the keyboard to buy a value</h2>
+				</section>`
 		)
 		$("body").append(div);
 	}

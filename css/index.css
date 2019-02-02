@@ -11,19 +11,20 @@ html {
 
 body {
 	height: 100%;
+	width: 100%;
+	overflow: hidden;
 	background-color: #df9f27;
 }
 
 .word-bank-board{
-	background: pink;
 	height: 20%;
-
+	/* for the background add flat white spry can banner on it */
 }
 
 .letters-board{
-	background: #add8e6;
 	height: 60%;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 }
 
@@ -57,6 +58,7 @@ td{
 	border: 1px solid black;
 	height: 80px;
 	width: 80px;
+	background-color: #83894f;
 }
 
 td:empty {
@@ -123,6 +125,7 @@ td:empty {
 .round-display {
 	position: absolute;
 	top: 50%;
+	width: 150px;
 	transform: translate(-50%, -50%);
 	animation: round 5s cubic-bezier(0.1, 0.8, 1, 0.1);
 	border: 3px solid white;
@@ -141,6 +144,29 @@ td:empty {
 /* this is for displaying the guess phrase */
 
 .guess-phrase-section {
+	position: absolute;
+	text-shadow: 2px 2px 5px #000000;
+	background-color: #be5502;
+	height: 400px;
+	width: 800px;
+	left: 50%;
+	top: 50%;
+	transform: translate( -50%, -50%);
+	color: #df9f27;
+	border-radius: 25px;
+	border: 8px solid #ffffff;
+}
+
+/* this is where ill display the used words */
+.display-used-letters {
+	text-align: center;
+	font-size: 3em;
+	margin: 0px;
+}
+
+/* this is the dispaly for buy vowel */
+
+.buy-vowel-section {
 	position: absolute;
 	text-shadow: 2px 2px 5px #000000;
 	background-color: #be5502;

@@ -11,6 +11,16 @@ $(window).on("click", (e) => {
         domUpdates.displayGuessphrase()
     }
 })
+
+//this is to display the div to tell player to use keyboard to buy vowel
+$(window).on("click", (e) => {
+    e.preventDefault()
+    if($(e.target).hasClass("vowel-display")){
+        console.log("hello world")
+        domUpdates.dispalyBuyValue()
+    }
+})
+
 // this is to display the wheel 
 $(window).on("click", (e) => {
     e.preventDefault()
@@ -39,6 +49,10 @@ $("#player-name").on("click", (e) => {
 $(window).on("click", (e) => {
     e.preventDefault()
     if($(e.target).hasClass("submit-guess-phrase")){
-       console.log("im working close me now")
+       domUpdates.closePhraseGuess()
     }
 });
+
+$(window).on("keydown", (e) => {
+    console.log(e.key)
+})
