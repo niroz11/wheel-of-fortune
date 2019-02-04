@@ -1,0 +1,37 @@
+
+.guess-phrase-section {
+	position: absolute;
+	text-shadow: 2px 2px 5px #000000;
+	background-color: #be5502;
+	height: 400px;
+	width: 800px;
+	left: 50%;
+	top: 50%;
+	transform: translate( -50%, -50%);
+	color: #df9f27;
+	border-radius: 25px;
+	border: 8px solid #ffffff;
+}
+
+
+/* this is the dispaly for buy vowel */
+
+.buy-vowel-section {
+	position: absolute;
+	text-shadow: 2px 2px 5px #000000;
+	background-color: #be5502;
+	height: 400px;
+	width: 800px;
+	left: 50%;
+	top: 50%;
+	transform: translate( -50%, -50%);
+	color: #df9f27;
+	border-radius: 25px;
+	border: 8px solid #ffffff;
+}
+
+/* this is the dom for the option */
+.option-display {
+	display: flex;
+	justify-content: space-around;
+}

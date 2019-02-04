@@ -1,0 +1,24 @@
+.player-display-board{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 20%;
+}
+
+.player-one{
+	background: #83894f;
+	height:100px;
+	width:100px;
+}
+
+.player-two{
+	background: #83894f; 
+	height: 100px;
+	width: 100px;
+}
+
+.player-three{
+	background: #83894f;
+	height: 100px;
+	width:100px;
+}

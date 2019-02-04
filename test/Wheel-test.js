@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
-const Wheel = require('../src/wheel.js')
-const data = require('../src/data.js')
+const Wheel = require('../src/wheel/wheel.js')
+const data = require('../src/index/data.js')
 
 var wheel;
 describe('Wheel', function() {

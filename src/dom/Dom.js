@@ -13,11 +13,11 @@ class DomUpdates{
 		$(".clue-banner").text(clue.category)
 	}
 	// this is going to display the round phrase
-	displayRoundPhrase(phrase){
-		$(phrase.correct_answer.split('')).each((i, letter) => {
-			console.log(letter)
-			$(".board-piece").eq(i).text(letter)
-		})
+	displayRoundPhrase(phrase, index){
+		for(var i = index; i < index + board.roundPhrase.first_word; i++){
+			$(".board-piece").eq(i).text(phrase.correct_answer.split('')[i - index])
+		}
+		
 	}
 	// this is dom for displaying the round
 	displayRound(round){

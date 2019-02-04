@@ -1,0 +1,19 @@
+
+.round-display {
+	position: absolute;
+	top: 50%;
+	width: 150px;
+	transform: translate(-50%, -50%);
+	animation: round 5s cubic-bezier(0.1, 0.8, 1, 0.1);
+	border: 3px solid white;
+	border-radius: 25px
+}
+
+@keyframes round{
+	0%{
+		left: 0%;
+	}
+	100%{
+		left: 120%;
+	}
+}

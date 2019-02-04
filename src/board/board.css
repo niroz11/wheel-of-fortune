@@ -1,0 +1,79 @@
+
+.word-bank-board{
+	height: 20%;
+	/* for the background add flat white spry can banner on it */
+}
+
+.letters-board{
+	height: 60%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+td{
+	text-align: center;
+	font-size: 2em;
+	border: 1px solid black;
+	height: 80px;
+	width: 80px;
+	background-color: #430580;
+}
+
+td:empty {
+	visibility: hidden;
+}
+
+/* this is where ill display the used words */
+.display-used-letters {
+	text-align: center;
+	font-size: 3em;
+	margin: 0px;
+}
+
+.clue-banner {
+	text-align: center;
+}
+
+/* the 3d triangle */
+
+.container {
+	position: relative;
+	animation: rotate 5s infinite;
+}
+
+.blank-side {
+	position: absolute;
+	top:0;
+	height: 100%;
+	width: 100%;
+	transform: rotatex(0deg) translateZ(57.735026918962596px);
+}
+
+.hidden-side {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #ffffff;
+	transform: rotatex(120deg) translateZ(57.735026918962596px);
+}
+
+.letter-side {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: red;
+	transform: rotatex(240deg) translateZ(57.735026918962596px);
+}
+
+
+@keyframes rotate {
+	0%{
+		transform: rotatex(0deg)
+	}
+	100%{
+		transform: rotatex(360deg)
+	}
+}

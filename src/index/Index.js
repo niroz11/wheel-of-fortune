@@ -43,7 +43,7 @@ $(window).on("click", (e) => {
 // this starts the game 
 $("#player-name").on("click", (e) => {
     e.preventDefault();
-    game.setGame();
+    game.setNewGame();
 });
 
 //this submit the guess the phrase input 
@@ -68,10 +68,6 @@ $(window).on("keyup", (e) => {
     
     
     if( keyCodeRange && range ){
-        console.log(keyCodeRange, "keycode");
-        console.log(range, "range");
-        console.log(game.usedLetters, "used letters")
-        
         game.usedLetters.push(e.key);
     $('.display-used-letters').append(e.key);
     }

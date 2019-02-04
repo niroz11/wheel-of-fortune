@@ -1,9 +1,9 @@
 import chai from 'chai';
 const expect = chai.expect;
-const Game = require('../src/game.js')
-global.Player = require('../src/player.js')
+const Game = require('../src/game/game.js')
+global.Player = require('../src/player/player.js')
 
-global.$ = require('jquery')(window)
+global.$ = require('jquery')
 
 describe('Game', function() {
 	var game;

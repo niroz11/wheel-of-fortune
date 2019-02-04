@@ -4,21 +4,20 @@ class Wheel{
 		this.currentWheelValue = [];
 	}
 	SetWheelValue(){
-		this.currentWheelValue =[]
+		this.currentWheelValue = [];
 		let randomValue = this.wheelValue.slice()
 		for (let i = randomValue.length - 1; i > 0; i--) {
 			const r = Math.floor(Math.random() * (i + 1));
 			[randomValue[i], randomValue[r]] = [randomValue[r], randomValue[i]];
-		}
+		};
 		for(var i = 0; i < 6; i++){
 			this.currentWheelValue.push(randomValue.shift());
-		}
-	}
+		};
+	};
 	spinWheel(){
 		let valuePick = Math.floor(Math.random() * 6);
 		let wheelSpin =  valuePick * (Math.ceil(Math.random() * 3) * 360);
-		domUpdates.spinAnimation(wheelSpin)
-		console.log(valuePick)
+		domUpdates.spinAnimation(wheelSpin);
 		setTimeout(() => {
 			domUpdates.displayWheelValue(this.currentWheelValue[valuePick])
 		}, 5000)
@@ -38,6 +37,4 @@ class Wheel{
 	}
 }
 
-if(typeof module !== 'undefined'){
-	module.exports = Wheel;
-}
+export default Wheel;
