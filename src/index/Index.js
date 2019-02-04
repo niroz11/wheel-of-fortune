@@ -8,10 +8,10 @@
 // import "../board/board.css";
 // import "../wheel/wheel.css";
 
-let game = new Game()
-let round;
+let game = new Game();
 let wheel;
-let board = new board()
+let round;
+let board = new Board();
 
 // this is to display the guess the whole phrase
 $(window).on("click", (e) => {
