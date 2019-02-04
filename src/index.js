@@ -60,7 +60,9 @@ $(window).on("keydown", (e) => {
 
 $().on("keyup", (e) => {
     e.preventDefault();
-    
+    let canBuyVowel = $(e.target).hasClass('option-type');
+    console.log(canBuyVowel, 'Heyy')
+    if(canBuyVowel){
     var keyCodeRange = (e.keyCode >64 && e.keyCode < 91)
     var range = (!game.usedLetters.includes(e.key));
     
@@ -73,7 +75,7 @@ $().on("keyup", (e) => {
         game.usedLetters.push(e.key);
     $('.display-used-letters').append(e.key);
     }
-    
+    }
 
 })
 
