@@ -1,14 +1,22 @@
-let game = new Game();
-let domUpdates = new DomUpdates;
-let wheel;
+// import domUpdates from "../dom/Dom.js";
+// import Game from "../game/Game.js";
+
+// import  "./index.css";
+// import "../game/game.css";
+// import "../player/player.css";
+// import  "../round/round.css";
+// import "../board/board.css";
+// import "../wheel/wheel.css";
+
+let game = new Game()
 let round;
-let board = new Board(); 
-
-
+let wheel;
+let board = new board()
 
 // this is to display the guess the whole phrase
 $(window).on("click", (e) => {
     e.preventDefault()
+    let game = new Game()
     if($(e.target).hasClass("guess-display")){
         domUpdates.displayGuessphrase()
     }
@@ -71,6 +79,5 @@ $(window).on("keyup", (e) => {
         game.usedLetters.push(e.key);
     $('.display-used-letters').append(e.key);
     }
-    
-
 })
+

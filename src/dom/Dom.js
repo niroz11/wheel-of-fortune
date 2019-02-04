@@ -97,7 +97,17 @@ class DomUpdates{
 		$(".wheel-section").append(div);
 	}
 	removeWheel(){
-		$(".wheel-section").remove()
+		$(".wheel-section").remove();
 		$(".show-value").remove();
+		this.dispalyEnterLetter()
+	}
+	dispalyEnterLetter(){
+		let div = $(
+			`<div class="pick-a-letter">
+				<p>use the keyboard to pick a letter</p>
+			</div>`
+			)
 	}
 }
+
+const domUpdates = new DomUpdates()

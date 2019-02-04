@@ -19,22 +19,22 @@ class Round{
         switch(this.gameround){
             case "One":
             this.gameround = "Two";
-            wheel.SetWheelValue()
+            game.wheel.SetWheelValue()
             this.displayRound();
             break;
             case "Two": 
             this.gameround = "Three"
-            wheel.SetWheelValue()
+            game.wheel.SetWheelValue()
             this.displayRound()
             break;
             case "Three": 
             this.gameround = "Four"
-            wheel.SetWheelValue()
+            game.wheel.SetWheelValue()
             this.displayRound()
             break;
             case "Four": 
             this.gameround = "Bonus"
-            wheel.SetWheelValue()
+            game.wheel.SetWheelValue()
             this.displayRound()
         }
     }
@@ -50,5 +50,3 @@ class Round{
         }, [])
     }
 }
-
-export default Round;
