@@ -21,8 +21,9 @@ export default {
 	},
 	// this is going to display the round phrase
 	displayRoundPhrase(board ,phrase, index){
-		for(var i = index; i < index + board.roundPhrase.first_word; i++){
-			$(".board-piece").eq(i).text(phrase.correct_answer.split('')[i - index])
+		let word = phrase.correct_answer.split('-').join(' ')
+		for(var i = index; i < index + word.length; i++){
+			$(".board-piece").eq(i).text(word.split('')[i - index])
 		}
 		
 	},
@@ -66,7 +67,7 @@ export default {
 		$(".guess-phrase-section").remove()
 	},
 	//this is the dom for buy a value 
-	dispalyBuyValue(){
+	dispalyBuyVowel(game){
 		let div = $(
 				`<section class="buy-vowel-section">
 					<h2>Use the keyboard to buy a value</h2>

@@ -31,7 +31,7 @@ $(window).on("click", (e) => {
 $(window).on("click", (e) => {
     e.preventDefault()
     if($(e.target).hasClass("vowel-display")){
-        domUpdates.dispalyBuyValue()
+        domUpdates.dispalyBuyVowel()
     }
 })
 
@@ -59,6 +59,7 @@ $(window).on("click", (e) => {
 });
 
 $(window).on("keydown", (e) => {
+    console.log("creating a vowel work")
     game.board.checkVowel(e.key)
 })
 
@@ -66,13 +67,13 @@ $(window).on("keyup", (e) => {
     e.preventDefault();
     
     var keyCodeRange = (e.keyCode >64 && e.keyCode < 91)
-    var range = (!game.usedLetters.includes(e.key));
+    var range = (!game.board.usedLetters.includes(e.key));
     
     
     
     
     if( keyCodeRange && range ){
-        game.usedLetters.push(e.key);
+        game.board.checkLetter(e.key)
     $('.display-used-letters').append(e.key);
     }
 })

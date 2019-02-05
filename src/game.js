@@ -12,7 +12,6 @@ class Game{
 		this.player = [];
 		this.playerInPlay = 0;
 		this.gamedata;
-		this.usedLetters = [];
 		this.wheel;
 		this.round;
 		this.board;
@@ -22,7 +21,6 @@ class Game{
 		this.parseData()
 		this.round.parseDataForGame()
 		this.round.setupround(this.wheel, this.board)
-		this.round.displayRound()
 		domUpdates.displayOption()
 	}
 	addPlayer(){

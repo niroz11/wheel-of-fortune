@@ -76,18 +76,13 @@ $().on("keyup", (e) => {
     
     
     if( keyCodeRange && range ){
-<<<<<<< HEAD:src/Index.js
-=======
         
         
->>>>>>> a6f13b75873a9077587ed7de499f30222a115cea:src/index.js
         game.usedLetters.push(e.key);
     $('.display-used-letters').append(e.key);
     }
 })
 
-<<<<<<< HEAD:src/Index.js
-=======
 
 
 
@@ -96,4 +91,3 @@ $().on("keyup", (e) => {
 
 
 
->>>>>>> a6f13b75873a9077587ed7de499f30222a115cea:src/index.js

@@ -13,6 +13,7 @@ class Round{
         this.wheel;
     }
     setupround(wheel, board){
+        this.displayRound()
         wheel.SetWheelValue()
         this.parseDataForGame()
         board.grabPhraseForRound(this)
