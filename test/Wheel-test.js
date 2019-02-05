@@ -1,7 +1,7 @@
 import chai from 'chai';
-const expect = chai.expect;
-const Wheel = require('../src/wheel/wheel.js')
-const data = require('../src/index/data.js')
+let expect = chai.expect;
+let Wheel = require('../src/wheel.js')
+import  data from '../src/data.js'
 
 var wheel;
 describe('Wheel', function() {
@@ -9,6 +9,13 @@ describe('Wheel', function() {
   	beforeEach(function(){
   		wheel = new Wheel([1,2,3,4,5,6]);
   	})
+
+it('should have default properties', function(){
+	expect(wheel.wheelValue).to.be.();
+})
+
+
+
 
 it('it should set wheel value', function(){
 	wheel.SetWheelValue();
@@ -24,8 +31,9 @@ it('it should set wheel value', function(){
 
 
 
+
 });
 
-module.exports = Wheel;
+// module.exports = Wheel;
 
 

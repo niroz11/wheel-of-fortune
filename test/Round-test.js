@@ -1,6 +1,6 @@
 import chai from 'chai';
 const expect = chai.expect;
-import Round from "../src/round/Round.js"
+import Round from "../src/round.js"
 
 global.$ = require('jquery')
 
