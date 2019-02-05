@@ -1,24 +1,31 @@
-class DomUpdates{
+import Game from "./game.js";
+import data from "./data.js"
+import Wheel from "./wheel.js";
+import Round from "./round.js";
+import $ from 'jquery';
+import Board from "./board.js";
+
+export default {
 	// this is dom for displaying the name and changing the score 
-	displayname(){
+	displayname(game){
 		$(".input").remove()
 		$("#player-name").remove()
 		for(var i = 0; i < 3; i++){
 			$(".display-name").eq(i).text(game.player[i].name)
 			$(".display-score").eq(i).text(game.player[i].account)
 		}
-	}
+	},
 	// this is going to display the round clue
 	displayRoundClue(clue){
 		$(".clue-banner").text(clue.category)
-	}
+	},
 	// this is going to display the round phrase
-	displayRoundPhrase(phrase, index){
+	displayRoundPhrase(board ,phrase, index){
 		for(var i = index; i < index + board.roundPhrase.first_word; i++){
 			$(".board-piece").eq(i).text(phrase.correct_answer.split('')[i - index])
 		}
 		
-	}
+	},
 	// this is dom for displaying the round
 	displayRound(round){
 		let div = $(
@@ -32,7 +39,7 @@ class DomUpdates{
 			$(".round-display").remove()
 			$(".option").prop("disabled",false);
 		}, 5000)
-	}
+	},
 	// this is dom for the three buttons
 	displayOption(){
 		let div = $(
@@ -43,7 +50,7 @@ class DomUpdates{
 			</div>`
 		);
 		$(".letters-board").append(div);
-	}
+	},
 	// this is dom for the guess the whole phrase
 	displayGuessphrase(){
 		let div = $(
@@ -54,12 +61,10 @@ class DomUpdates{
 			</section>`
 		)
 		$("body").append(div);
-	}
-
+	},
 	closePhraseGuess(){
 		$(".guess-phrase-section").remove()
-	}
-
+	},
 	//this is the dom for buy a value 
 	dispalyBuyValue(){
 		let div = $(
@@ -68,10 +73,10 @@ class DomUpdates{
 				</section>`
 		)
 		$("body").append(div);
-	}
+	},
 	removeVowelDisplay(){
 		$(".buy-vowel-section").remove()
-	}
+	},
 	// this is dom for the wheel
 	displayWheel(){
 		let div = $(
@@ -84,10 +89,10 @@ class DomUpdates{
 			</section>`
 		);
 		$("body").append(div);
-	}
+	},
 	spinAnimation(num){
 		$(".wheel").css("transform", `rotate(${num}deg)`);
-	}
+	},
 	displayWheelValue(value){
 		let div = $(
 			`<div class="show-value">
@@ -95,12 +100,12 @@ class DomUpdates{
 			</div>`
 		)
 		$(".wheel-section").append(div);
-	}
+	},
 	removeWheel(){
 		$(".wheel-section").remove();
 		$(".show-value").remove();
 		this.dispalyEnterLetter()
-	}
+	},
 	dispalyEnterLetter(){
 		let div = $(
 			`<div class="pick-a-letter">
@@ -110,4 +115,6 @@ class DomUpdates{
 	}
 }
 
-const domUpdates = new DomUpdates()
+
+
+

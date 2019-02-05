@@ -1,6 +1,9 @@
+
+import domUpdates from "./dom.js";
+
 class Wheel{
 	constructor(data){
-		this.wheelValue = data;
+		this.wheelValue = data;		
 		this.currentWheelValue = [];
 	}
 	SetWheelValue(){
@@ -20,6 +23,7 @@ class Wheel{
 		domUpdates.spinAnimation(wheelSpin);
 		setTimeout(() => {
 			domUpdates.displayWheelValue(this.currentWheelValue[valuePick])
+			console.log(this.currentWheelValue)
 		}, 5000)
 		setTimeout(() => {
 			this.addValueToPlayer(this.currentWheelValue[valuePick])
@@ -36,3 +40,5 @@ class Wheel{
 		}
 	}
 }
+
+export default Wheel;

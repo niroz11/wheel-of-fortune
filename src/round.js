@@ -1,14 +1,21 @@
+import Game from "./game.js";
+import data from "./data.js"
+import Wheel from "./wheel.js";
+import Board from "./board.js";
+import $ from 'jquery';
+import domUpdates from "./dom.js";
+
 class Round{
     constructor(data){
         this.gameData = data;
         this.gameQuestions;
         this.gameround = "One";
+        this.wheel;
     }
-    setupround(){
-        board = new Board(this.gameQuestions)
+    setupround(wheel, board){
         wheel.SetWheelValue()
         this.parseDataForGame()
-        board.grabPhraseForRound()
+        board.grabPhraseForRound(this)
         board.placeClueOnTheGame()
         board.placePhraseOnBoard()
     }
@@ -19,22 +26,22 @@ class Round{
         switch(this.gameround){
             case "One":
             this.gameround = "Two";
-            game.wheel.SetWheelValue()
+            wheel.SetWheelValue()
             this.displayRound();
             break;
             case "Two": 
             this.gameround = "Three"
-            game.wheel.SetWheelValue()
+            wheel.SetWheelValue()
             this.displayRound()
             break;
             case "Three": 
             this.gameround = "Four"
-            game.wheel.SetWheelValue()
+            wheel.SetWheelValue()
             this.displayRound()
             break;
             case "Four": 
             this.gameround = "Bonus"
-            game.wheel.SetWheelValue()
+            wheel.SetWheelValue()
             this.displayRound()
         }
     }
@@ -50,3 +57,4 @@ class Round{
         }, [])
     }
 }
+export default Round;

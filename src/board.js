@@ -1,9 +1,11 @@
+import domUpdates from "./dom.js";
 class Board{
-	constructor(data){
-		this.roundPhrase = data;
+	constructor(){
+		this.roundPhrase;
 	}
-	grabPhraseForRound(){
+	grabPhraseForRound(round){
 		this.roundPhrase =(round.gameQuestions.shift())
+		console.log(this.roundPhrase)
 	}
 	placePhraseOnBoard(){
 		let index = 0
@@ -23,7 +25,7 @@ class Board{
 			break;
 		}
 
-		domUpdates.displayRoundPhrase(this.roundPhrase, index)
+		domUpdates.displayRoundPhrase(this, this.roundPhrase, index)
 	}
 	placeClueOnTheGame(){
 		domUpdates.displayRoundClue(this.roundPhrase)
@@ -35,4 +37,6 @@ class Board{
 		if(["a","b","c"].includes(letter))
 		domUpdates.removeVowelDisplay()
 	}
-}
+} 
+
+export default Board;

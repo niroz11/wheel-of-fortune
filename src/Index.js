@@ -1,22 +1,31 @@
-// import domUpdates from "../dom/Dom.js";
-// import Game from "../game/Game.js";
+import data from "./data.js"
+import wheel from "./wheel.js";
+import round from "./round.js";
+import board from "./board.js";
+import Game from "./game.js"
+import $ from 'jquery';
 
-// import  "./index.css";
-// import "../game/game.css";
-// import "../player/player.css";
-// import  "../round/round.css";
-// import "../board/board.css";
-// import "../wheel/wheel.css";
+import "./css/game.css"
+import "./css/index.css"
+import "./css/player.css"
+import "./css/board.css"
+import "./css/wheel.css"
 
-let game = new Game();
-let wheel;
-let round;
-let board = new Board();
+import "../wheel.png"
+import domUpdates from "./dom.js";
 
+console.log(data)
+
+let game; 
+
+$("#player-name").on("click", (e) => {
+    e.preventDefault();
+    game =  new Game();
+    game.setNewGame();
+});
 // this is to display the guess the whole phrase
 $(window).on("click", (e) => {
     e.preventDefault()
-    let game = new Game()
     if($(e.target).hasClass("guess-display")){
         domUpdates.displayGuessphrase()
     }
@@ -37,21 +46,12 @@ $(window).on("click", (e) => {
         domUpdates.displayWheel()
     }
 })
-
-
 // this spends the wheel 
 $(window).on("click", (e) => {
     e.preventDefault()
     if($(e.target).hasClass("spin-button")){
-        wheel.spinWheel()
+        game.wheel.spinWheel()
     }
-});
-
-
-// this starts the game 
-$("#player-name").on("click", (e) => {
-    e.preventDefault();
-    game.setNewGame();
 });
 
 //this submit the guess the phrase input 
@@ -63,7 +63,7 @@ $(window).on("click", (e) => {
 });
 
 $(window).on("keydown", (e) => {
-    board.checkVowel(e.key)
+    game.board.checkVowel(e.key)
 })
 
 $(window).on("keyup", (e) => {

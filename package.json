@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/turingschool-examples/gametime-starter#readme",
   "devDependencies": {
+    "@babel/core": "^7.2.2",
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
     "css-loader": "^2.1.0",
