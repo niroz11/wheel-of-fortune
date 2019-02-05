@@ -26,4 +26,6 @@ it('it should set wheel value', function(){
 
 });
 
+module.exports = Wheel;
+
 
