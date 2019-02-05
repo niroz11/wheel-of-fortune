@@ -15,3 +15,7 @@ body {
 	overflow: hidden;
 	background: radial-gradient(circle at bottom, navy 0, black 100%);
 }
+
+h1 {
+	text-align: center;
+}

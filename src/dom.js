@@ -35,7 +35,7 @@ export default {
 			</div>`
 		)
 		$(".option").prop("disabled",true);
-		$("body").append(div)
+		$("body").append(div);
 		setTimeout(() => {
 			$(".round-display").remove()
 			$(".option").prop("disabled",false);
@@ -103,16 +103,20 @@ export default {
 		$(".wheel-section").append(div);
 	},
 	removeWheel(){
+		this.displayEnterLetter()
 		$(".wheel-section").remove();
 		$(".show-value").remove();
-		this.dispalyEnterLetter()
 	},
-	dispalyEnterLetter(){
+	displayEnterLetter(){
 		let div = $(
 			`<div class="pick-a-letter">
 				<p>use the keyboard to pick a letter</p>
 			</div>`
 			)
+			$("body").append(div);
+	},
+	removeLetterDisplay(){
+		$(".pick-a-letter").remove();
 	}
 }
 

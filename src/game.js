@@ -20,8 +20,8 @@ class Game{
 		this.addPlayer()
 		this.parseData()
 		this.round.parseDataForGame()
-		this.round.setupround(this.wheel, this.board)
 		domUpdates.displayOption()
+		this.round.setupround(this.wheel, this.board)
 	}
 	addPlayer(){
 		$(".playerName").each((i, name) => {

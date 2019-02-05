@@ -7,15 +7,13 @@ import "./css/index.css"
 import "./css/player.css"
 import "./css/board.css"
 import "./css/wheel.css"
+import "./css/round.css"
 
 import domUpdates from "./dom.js";
-
-console.log(data)
 
 let game; 
 
 $("#player-name").on("click", (e) => {
-    e.preventDefault();
     game =  new Game();
     game.setNewGame();
 });
@@ -25,6 +23,7 @@ $(window).on("click", (e) => {
     if($(e.target).hasClass("guess-display")){
         domUpdates.displayGuessphrase()
     }
+    return true;
 })
 
 //this is to display the div to tell player to use keyboard to buy vowel
@@ -33,6 +32,7 @@ $(window).on("click", (e) => {
     if($(e.target).hasClass("vowel-display")){
         domUpdates.dispalyBuyVowel()
     }
+    return true;
 })
 
 // this is to display the wheel 
@@ -52,29 +52,32 @@ $(window).on("click", (e) => {
 
 //this submit the guess the phrase input 
 $(window).on("click", (e) => {
-    e.preventDefault()
     if($(e.target).hasClass("submit-guess-phrase")){
        domUpdates.closePhraseGuess()
     }
 });
 
-$(window).on("keydown", (e) => {
-    console.log("creating a vowel work")
-    game.board.checkVowel(e.key)
-})
 
-$(window).on("keyup", (e) => {
-    e.preventDefault();
-    
-    var keyCodeRange = (e.keyCode >64 && e.keyCode < 91)
-    var range = (!game.board.usedLetters.includes(e.key));
-    
-    
-    
-    
-    if( keyCodeRange && range ){
-        game.board.checkLetter(e.key)
-    $('.display-used-letters').append(e.key);
+// this allows you to use keyboard to buy a letter
+$(window).on("keydown", (e) => {
+    if($(".pick-a-letter")[0]){
+        var keyCodeRange = (e.keyCode >64 && e.keyCode < 91)
+         var range = (!game.board.usedLetters.includes(e.key));
+        if( keyCodeRange && range ){
+            game.board.checkLetter(e.key)
+        }
     }
 })
+
+
+// //this lets you use your keyboard for buying a vowel 
+$(window).on("keydown", (e) => {
+    if($(".buy-vowel-section")[0]){
+        game.board.checkVowel(e.key)
+    }
+})
+
+
+
+
 
