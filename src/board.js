@@ -35,9 +35,7 @@ class Board{
 		domUpdates.displayRoundClue(this.roundData)
 	}
 	checkLetter(game, letter){
-		console.log("game", game)
-		console.log("letter", letter)
-		console.log("used letters", this.usedLetters)
+		
 		if(!this.usedLetters.includes(letter)){
 			$('.display-used-letters').append(letter);
 		}
@@ -54,9 +52,7 @@ class Board{
 			this.usedLetters.push(letter);
 			domUpdates.removeLetterDisplay()
 		}
-		console.log(game.wheel.currentWheelValue)
-		console.log(game.player[0].account)
-		console.log(game.player)
+		domUpdates.updateScore(game);
 	}
 	checkVowel(game, letter){
 		game.player[game.playerInPlay].account -= 100;
@@ -74,6 +70,7 @@ class Board{
 			this.usedLetters.push(letter);
 			domUpdates.removeVowelDisplay()
 		}
+		domUpdates.updateScore(game);
 	}
 
 	checkGuessPhrase(){

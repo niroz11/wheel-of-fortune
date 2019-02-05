@@ -117,6 +117,9 @@ export default {
 	},
 	removeLetterDisplay(){
 		$(".pick-a-letter").remove();
+	}, 
+	updateScore(game){
+		$(".display-score").eq(game.playerInPlay).text(game.player[game.playerInPlay].account);
 	}
 }
 
