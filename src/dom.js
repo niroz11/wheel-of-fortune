@@ -103,9 +103,9 @@ export default {
 		$(".wheel-section").append(div);
 	},
 	removeWheel(){
+		this.displayEnterLetter()
 		$(".wheel-section").remove();
 		$(".show-value").remove();
-		this.dispalyEnterLetter()
 	},
 	displayEnterLetter(){
 		let div = $(
@@ -113,6 +113,10 @@ export default {
 				<p>use the keyboard to pick a letter</p>
 			</div>`
 			)
+			$("body").append(div);
+	},
+	removeLetterDisplay(){
+		$(".pick-a-letter").remove();
 	}
 }
 

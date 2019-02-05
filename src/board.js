@@ -39,13 +39,15 @@ class Board{
 			$('.display-used-letters').append(letter);
 		}
 		if(this.usedLetters.includes(letter)){
-			console.log("check letter pick another working")
+			alert("check letter pick another working")
 		}else if(this.roundPhrase.toLowerCase().includes(letter)  && !this.vowels.includes(letter)){
-			console.log("check letter right answer working")
+			alert("check letter right answer working")
 			this.usedLetters.push(letter);
+			domUpdates.removeLetterDisplay()
 		}else{
-			console.log("check letter everything is wrong working")
+			alert("check letter everything is wrong working")
 			this.usedLetters.push(letter);
+			domUpdates.removeLetterDisplay()
 		}
 	}
 	checkVowel(letter){
@@ -53,15 +55,16 @@ class Board{
 			$('.display-used-letters').append(letter);
 		}
 		if(this.usedLetters.includes(letter) && this.vowels.includes(letter)){
-			console.log("check vowel pick another vowel working ")
+			alert("check vowel pick another vowel working ")
 		}else if(this.roundPhrase.toLowerCase().includes(letter)){
-			console.log("check vowel you got it right working");
+			alert("check vowel you got it right working");
 			this.usedLetters.push(letter);
+			domUpdates.removeVowelDisplay()
 		}else{
-			console.log("check vowel you got it wrong");
+			alert("check vowel you got it wrong");
 			this.usedLetters.push(letter);
+			domUpdates.removeVowelDisplay()
 		}
-		domUpdates.removeVowelDisplay()
 	}
 
 	checkGuessPhrase(){

@@ -7,6 +7,7 @@ import "./css/index.css"
 import "./css/player.css"
 import "./css/board.css"
 import "./css/wheel.css"
+import "./css/round.css"
 
 import domUpdates from "./dom.js";
 
@@ -59,7 +60,7 @@ $(window).on("click", (e) => {
 
 // this allows you to use keyboard to buy a letter
 $(window).on("keydown", (e) => {
-    if($(".wheel-section")[0]){
+    if($(".pick-a-letter")[0]){
         var keyCodeRange = (e.keyCode >64 && e.keyCode < 91)
          var range = (!game.board.usedLetters.includes(e.key));
         if( keyCodeRange && range ){
@@ -75,4 +76,8 @@ $(window).on("keydown", (e) => {
         game.board.checkVowel(e.key)
     }
 })
+
+
+
+
 
