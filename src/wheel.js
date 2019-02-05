@@ -5,6 +5,7 @@ class Wheel{
 	constructor(data){
 		this.wheelValue = data;		
 		this.currentWheelValue = [];
+		this.spinValue;
 	}
 	SetWheelValue(){
 		this.currentWheelValue = [];
@@ -28,7 +29,8 @@ class Wheel{
 		setTimeout(() => {
 			this.addValueToPlayer(this.currentWheelValue[valuePick])
 			domUpdates.removeWheel()
-		}, 7000)
+		}, 7000);
+		this.spinValue = this.currentWheelValue[valuePick];
 	}
 	addValueToPlayer(valuePick){
 		if(typeof valuePick === "number"){

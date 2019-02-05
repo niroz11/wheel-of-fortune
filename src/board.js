@@ -34,13 +34,17 @@ class Board{
 	placeClueOnTheGame(){
 		domUpdates.displayRoundClue(this.roundData)
 	}
-	checkLetter(letter){
+	checkLetter(game, letter){
+		console.log("game", game)
+		console.log("letter", letter)
+		console.log("used letters", this.usedLetters)
 		if(!this.usedLetters.includes(letter)){
 			$('.display-used-letters').append(letter);
 		}
 		if(this.usedLetters.includes(letter)){
-			alert("check letter pick another working")
+			alert("Pick another letter");
 		}else if(this.roundPhrase.toLowerCase().includes(letter)  && !this.vowels.includes(letter)){
+			game.player[game.playerInPlay].account += game.wheel.spinValue;
 			alert("check letter right answer working")
 			this.usedLetters.push(letter);
 			domUpdates.removeLetterDisplay()
@@ -49,6 +53,9 @@ class Board{
 			this.usedLetters.push(letter);
 			domUpdates.removeLetterDisplay()
 		}
+		console.log(game.wheel.currentWheelValue)
+		console.log(game.player[0].account)
+		console.log(game.player)
 	}
 	checkVowel(letter){
 		if(!this.usedLetters.includes(letter)){

@@ -64,7 +64,7 @@ $(window).on("keydown", (e) => {
         var keyCodeRange = (e.keyCode >64 && e.keyCode < 91)
          var range = (!game.board.usedLetters.includes(e.key));
         if( keyCodeRange && range ){
-            game.board.checkLetter(e.key)
+            game.board.checkLetter(game ,e.key)
         }
     }
 })
