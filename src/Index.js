@@ -73,7 +73,7 @@ $(window).on("keydown", (e) => {
 // //this lets you use your keyboard for buying a vowel 
 $(window).on("keydown", (e) => {
     if($(".buy-vowel-section")[0]){
-        game.board.checkVowel(e.key)
+        game.board.checkVowel(game, e.key)
     }
 })
 

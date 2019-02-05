@@ -58,7 +58,8 @@ class Board{
 		console.log(game.player[0].account)
 		console.log(game.player)
 	}
-	checkVowel(letter){
+	checkVowel(game, letter){
+		game.player[game.playerInPlay].account -= 100;
 		if(!this.usedLetters.includes(letter)){
 			$('.display-used-letters').append(letter);
 		}
