@@ -65,14 +65,14 @@ $(window).on("keydown", (e) => {
 
 $(window).on("keyup", (e) => {
     e.preventDefault();
-    
+    // debugger
     var keyCodeRange = (e.keyCode >64 && e.keyCode < 91)
     var range = (!game.board.usedLetters.includes(e.key));
     
     
     
     
-    if( keyCodeRange && range ){
+    if( keyCodeRange ){
         game.board.checkLetter(e.key)
     $('.display-used-letters').append(e.key);
     }
