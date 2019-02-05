@@ -24,7 +24,9 @@ export default {
 		let word = phrase.correct_answer.split('-').join(' ')
 		for(var i = index; i < index + word.length; i++){
 			$(".board-piece").eq(i).text(word.split('')[i - index])
+			if(word.split('')[i - index] !== ' '){
 			$(".board-piece").eq(i).css("background-color", "white")[i - index]
+			}
 		}
 		
 	},
