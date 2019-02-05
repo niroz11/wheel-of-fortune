@@ -1,4 +1,7 @@
 import data from "./data.js"
+import wheel from "./wheel.js";
+import round from "./round.js";
+import board from "./board.js";
 import Game from "./game.js"
 import $ from 'jquery';
 
@@ -8,6 +11,7 @@ import "./css/player.css"
 import "./css/board.css"
 import "./css/wheel.css"
 
+import "../wheel.png"
 import domUpdates from "./dom.js";
 
 console.log(data)
@@ -62,7 +66,7 @@ $(window).on("keydown", (e) => {
     game.board.checkVowel(e.key)
 })
 
-$(window).on("keyup", (e) => {
+$().on("keyup", (e) => {
     e.preventDefault();
     
     var keyCodeRange = (e.keyCode >64 && e.keyCode < 91)
@@ -72,8 +76,24 @@ $(window).on("keyup", (e) => {
     
     
     if( keyCodeRange && range ){
+<<<<<<< HEAD:src/Index.js
+=======
+        
+        
+>>>>>>> a6f13b75873a9077587ed7de499f30222a115cea:src/index.js
         game.usedLetters.push(e.key);
     $('.display-used-letters').append(e.key);
     }
 })
 
+<<<<<<< HEAD:src/Index.js
+=======
+
+
+
+
+
+
+
+
+>>>>>>> a6f13b75873a9077587ed7de499f30222a115cea:src/index.js
