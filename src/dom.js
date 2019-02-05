@@ -35,7 +35,7 @@ export default {
 			</div>`
 		)
 		$(".option").prop("disabled",true);
-		$("body").append(div)
+		$("body").append(div);
 		setTimeout(() => {
 			$(".round-display").remove()
 			$(".option").prop("disabled",false);
@@ -107,7 +107,7 @@ export default {
 		$(".show-value").remove();
 		this.dispalyEnterLetter()
 	},
-	dispalyEnterLetter(){
+	displayEnterLetter(){
 		let div = $(
 			`<div class="pick-a-letter">
 				<p>use the keyboard to pick a letter</p>
