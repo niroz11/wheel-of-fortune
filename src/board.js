@@ -49,6 +49,7 @@ class Board{
 			this.usedLetters.push(letter);
 			domUpdates.removeLetterDisplay()
 		}else{
+			game.changePlayer()
 			alert("check letter everything is wrong working")
 			this.usedLetters.push(letter);
 			domUpdates.removeLetterDisplay()
