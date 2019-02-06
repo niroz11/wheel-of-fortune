@@ -13,37 +13,36 @@ class Round{
         this.wheel;
     }
     setupround(wheel, board){
+        this.parseDataForGame()
+        this.startNewRound(wheel, board)
+        
+    }
+    startNewRound(wheel, board){
+        domUpdates.resetRound()
+        this.changeRound()
         this.displayRound()
         wheel.SetWheelValue()
-        this.parseDataForGame()
+        domUpdates.updateAllScore()
         board.grabPhraseForRound(this)
         board.placeClueOnTheGame()
-        board.placePhraseOnBoard()
+        board.placePhraseOnBoard() 
     }
     displayRound(){
         domUpdates.displayRound(this.gameround)
     }
-    changeRound(){
+    changeRound(game){
         switch(this.gameround){
             case "One":
             this.gameround = "Two";
-            wheel.SetWheelValue()
-            this.displayRound();
             break;
             case "Two": 
             this.gameround = "Three"
-            wheel.SetWheelValue()
-            this.displayRound()
             break;
             case "Three": 
             this.gameround = "Four"
-            wheel.SetWheelValue()
-            this.displayRound()
             break;
             case "Four": 
             this.gameround = "Bonus"
-            wheel.SetWheelValue()
-            this.displayRound()
         }
     }
     parseDataForGame(){

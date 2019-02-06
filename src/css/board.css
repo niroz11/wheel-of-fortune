@@ -39,50 +39,6 @@ td:empty {
 	text-align: center;
 }
 
-/* the 3d triangle */
-
-.container {
-	position: relative;
-	animation: rotate 5s infinite;
-}
-
-.blank-side {
-	position: absolute;
-	top:0;
-	height: 100%;
-	width: 100%;
-	transform: rotatex(0deg) translateZ(57.735026918962596px);
-}
-
-.hidden-side {
-	position: absolute;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background-color: #ffffff;
-	transform: rotatex(120deg) translateZ(57.735026918962596px);
-}
-
-.letter-side {
-	position: absolute;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background-color: red;
-	transform: rotatex(240deg) translateZ(57.735026918962596px);
-}
-
-
-@keyframes rotate {
-	0%{
-		transform: rotatex(0deg)
-	}
-	100%{
-		transform: rotatex(360deg)
-	}
-}
-
-
 .front-face {
 	z-index: 2;
 	border-radius: 10px;
@@ -103,38 +59,3 @@ td:empty {
     backface-visibility: hidden;
     transform: rotateY(180deg);
 }
-
-
-/* add this to the td */
-
-/* .study-card.flip-back {
-    animation: flipback 0.5s linear infinite;
-}
-
-.study-card.flip-front {
-    animation: flipfront 0.5s linear forwards;
-}
-
-@keyframes flipback {
-    0% {
-      transform: scale(1) rotateY(0);
-    }
-    50% {
-      transform: scale(0.4) rotateY(-90deg);
-    }
-    100% {
-      transform: scale(1) rotateY(-180deg);
-    }
-  }
-
-  @keyframes flipfront {
-    0% {
-    transform: scale(1) rotateY(-180deg);
-    }
-    50% {
-      transform: scale(0.4) rotateY(-90deg); 
-    }
-    100% {
-        transform: scale(1) rotateY(0);
-    }
-  } */

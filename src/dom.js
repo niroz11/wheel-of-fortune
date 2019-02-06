@@ -62,7 +62,7 @@ export default {
 		let div = $(
 			`<section class="guess-phrase-section">
 				<h2>Guess The Phrse</h2>
-				<input type="type"/>
+				<input type="text" class="guess-input"/>
 				<button class="submit-guess-phrase">Submit</button>
 			</section>`
 		)
@@ -139,11 +139,23 @@ export default {
 	updateScore(game){
 		$(".display-score").eq(game.playerInPlay).text(game.player[game.playerInPlay].account);
 	},
+	updateAllScore(){
+		$(".display-score").each((i, score) => {
+			$(score).text("0")
+		})
+	},
 	flipCard(letter){
 		$(".back-face").each((i, face) => {
 			if($(face).text().toLocaleLowerCase() === letter){
 				$(".board-piece").eq(i).css("transform", "rotateY(-180deg)")
 			}
+		})
+	},
+	resetRound(){
+		$(".board-piece").each((i, card) => {
+			$(".back-face").eq(i).text("")
+			$(".front-face").eq(i).css("background-color", "")
+			$(card).css("transform", "")
 		})
 	}
 }

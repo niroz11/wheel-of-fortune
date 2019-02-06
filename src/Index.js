@@ -10,12 +10,11 @@ import "./css/player.css"
 import "./css/board.css"
 import "./css/wheel.css"
 import "./css/round.css"
-// image
 
 let game; 
 
 $("#player-name").on("click", (e) => {
-    game =  new Game();
+    game = new Game();
     game.setNewGame();
 });
 // this is to display the guess the whole phrase
@@ -56,7 +55,7 @@ $(window).on("click", (e) => {
 //this submit the guess the phrase input 
 $(window).on("click", (e) => {
     if($(e.target).hasClass("submit-guess-phrase")){
-       domUpdates.closePhraseGuess()
+       game.board.checkGuessPhrase(game)
     }
 });
 

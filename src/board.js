@@ -19,11 +19,11 @@ class Board{
 			index = Math.floor(centerText/2 + 12);
 			break;
 			case 2:
-			if(this.roundData.correct_answer.length > 15){
+			if(this.roundData.correct_answer.length < 15){
 				let centerText = 14 - this.roundData.correct_answer.length;
 				index = Math.floor(centerText/2 + 12);
 			}else{
-				// make equation to split word to two array
+				console.log("hello word round two")
 			}
 			break;
 			case 3:
@@ -67,16 +67,22 @@ class Board{
 			domUpdates.removeVowelDisplay();
 		}else{
 			game.player[game.playerInPlay].account -= 100;
-			alert("check vowel you got it wrong");
+			game.changePlayer()
 			this.usedLetters.push(letter);
 			$('.display-used-letters').append(letter);
 			domUpdates.removeVowelDisplay();
 		}
 		domUpdates.updateScore(game);
 	}
-
-	checkGuessPhrase(){
-		return true;
+	checkGuessPhrase(game){
+		if(this.roundPhrase.toLowerCase() === $(".guess-input").val()){
+			game.player[game.playerInPlay].bank += game.player[game.playerInPlay].account
+			game.round.startNewRound(game.wheel, game.board)
+			$(game.player).each((i, player) => player.account = 0)
+		}else{
+			game.changePlayer()
+		}
+		domUpdates.closePhraseGuess()
 	}
 	checkPhraseIsCompleted(){
 		return true;
