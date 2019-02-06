@@ -51,6 +51,8 @@ class Board{
 			this.usedLetters.push(letter);
 			domUpdates.removeLetterDisplay()
 		}
+		domUpdates.updateScore(game);
+
 	}
 	checkVowel(game, letter){
 		game.player[game.playerInPlay].account -= 100;
@@ -68,6 +70,7 @@ class Board{
 			this.usedLetters.push(letter);
 			domUpdates.removeVowelDisplay()
 		}
+		domUpdates.updateScore(game);
 	}
 
 	checkGuessPhrase(){
