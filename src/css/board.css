@@ -12,6 +12,8 @@
 }
 
 td{
+	transform-style: preserve-3d;
+	position: relative;
 	text-align: center;
 	font-size: 2em;
 	border: 1px solid black;
@@ -19,6 +21,7 @@ td{
 	width: 80px;
 	background-color: #430580;
 	border-radius: 10px;
+	transition: 2s;
 }
 
 td:empty {
@@ -36,45 +39,23 @@ td:empty {
 	text-align: center;
 }
 
-/* the 3d triangle */
-
-.container {
-	position: relative;
-	animation: rotate 5s infinite;
-}
-
-.blank-side {
+.front-face {
+	z-index: 2;
+	border-radius: 10px;
 	position: absolute;
-	top:0;
+	top: 0px;
 	height: 100%;
 	width: 100%;
-	transform: rotatex(0deg) translateZ(57.735026918962596px);
+    backface-visibility: hidden;
 }
 
-.hidden-side {
+.back-face {
+	z-index: 2;
+	border-radius: 10px;
 	position: absolute;
-	top: 0;
+	top: 0px;
 	height: 100%;
 	width: 100%;
-	background-color: #ffffff;
-	transform: rotatex(120deg) translateZ(57.735026918962596px);
-}
-
-.letter-side {
-	position: absolute;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background-color: red;
-	transform: rotatex(240deg) translateZ(57.735026918962596px);
-}
-
-
-@keyframes rotate {
-	0%{
-		transform: rotatex(0deg)
-	}
-	100%{
-		transform: rotatex(360deg)
-	}
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
 }

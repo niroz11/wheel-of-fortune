@@ -1,7 +1,9 @@
+// js
 import data from "./data.js"
 import Game from "./game.js"
 import $ from 'jquery';
-
+import domUpdates from "./dom.js";
+// css
 import "./css/game.css"
 import "./css/index.css"
 import "./css/player.css"
@@ -9,12 +11,10 @@ import "./css/board.css"
 import "./css/wheel.css"
 import "./css/round.css"
 
-import domUpdates from "./dom.js";
-
 let game; 
 
 $("#player-name").on("click", (e) => {
-    game =  new Game();
+    game = new Game();
     game.setNewGame();
 });
 // this is to display the guess the whole phrase
@@ -29,7 +29,8 @@ $(window).on("click", (e) => {
 //this is to display the div to tell player to use keyboard to buy vowel
 $(window).on("click", (e) => {
     e.preventDefault()
-    if($(e.target).hasClass("vowel-display")){
+    if($(e.target).hasClass("vowel-display") && game.player[game.playerInPlay].account >= 100){
+        console.log(game.board.roundPhrase)
         domUpdates.dispalyBuyVowel()
     }
     return true;
@@ -39,6 +40,7 @@ $(window).on("click", (e) => {
 $(window).on("click", (e) => {
     e.preventDefault()
     if($(e.target).hasClass("wheel-display")){
+        console.log(game.board.roundPhrase)
         domUpdates.displayWheel()
     }
 })
@@ -53,7 +55,7 @@ $(window).on("click", (e) => {
 //this submit the guess the phrase input 
 $(window).on("click", (e) => {
     if($(e.target).hasClass("submit-guess-phrase")){
-       domUpdates.closePhraseGuess()
+       game.board.checkGuessPhrase(game)
     }
 });
 

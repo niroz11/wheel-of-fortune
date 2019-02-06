@@ -19,7 +19,12 @@ class Board{
 			index = Math.floor(centerText/2 + 12);
 			break;
 			case 2:
-			// figure out equation for two word
+			if(this.roundData.correct_answer.length < 15){
+				let centerText = 14 - this.roundData.correct_answer.length;
+				index = Math.floor(centerText/2 + 12);
+			}else{
+				console.log("hello word round two")
+			}
 			break;
 			case 3:
 			// figure out equation for 3 words
@@ -35,46 +40,49 @@ class Board{
 		domUpdates.displayRoundClue(this.roundData)
 	}
 	checkLetter(game, letter){
-		if(!this.usedLetters.includes(letter)){
-			$('.display-used-letters').append(letter);
-		}
-		if(this.usedLetters.includes(letter)){
-			alert("Pick another letter");
+		if(this.usedLetters.includes(letter) || this.vowels.includes(letter)){
+			domUpdates.pickLetterAlert()
 		}else if(this.roundPhrase.toLowerCase().includes(letter)  && !this.vowels.includes(letter)){
 			game.player[game.playerInPlay].account += game.wheel.spinValue;
-			alert("check letter right answer working")
 			this.usedLetters.push(letter);
+			$('.display-used-letters').append(letter);
+			domUpdates.flipCard(letter)
 			domUpdates.removeLetterDisplay()
 		}else{
 			game.changePlayer()
-			alert("check letter everything is wrong working")
 			this.usedLetters.push(letter);
+			$('.display-used-letters').append(letter);
 			domUpdates.removeLetterDisplay()
 		}
 		domUpdates.updateScore(game);
-
 	}
 	checkVowel(game, letter){
-		game.player[game.playerInPlay].account -= 100;
-		if(!this.usedLetters.includes(letter)){
+		if(this.usedLetters.includes(letter) || !this.vowels.includes(letter)){
+			domUpdates.pickVowelAlert()
+		}else if(this.roundPhrase.toLowerCase().includes(letter) && this.vowels.includes(letter)){
+			game.player[game.playerInPlay].account -= 100;
+			this.usedLetters.push(letter);
 			$('.display-used-letters').append(letter);
-		}
-		if(this.usedLetters.includes(letter) && this.vowels.includes(letter)){
-			alert("check vowel pick another vowel working ")
-		}else if(this.roundPhrase.toLowerCase().includes(letter)){
-			alert("check vowel you got it right working");
-			this.usedLetters.push(letter);
-			domUpdates.removeVowelDisplay()
+			domUpdates.flipCard(letter);
+			domUpdates.removeVowelDisplay();
 		}else{
-			alert("check vowel you got it wrong");
+			game.player[game.playerInPlay].account -= 100;
+			game.changePlayer()
 			this.usedLetters.push(letter);
-			domUpdates.removeVowelDisplay()
+			$('.display-used-letters').append(letter);
+			domUpdates.removeVowelDisplay();
 		}
 		domUpdates.updateScore(game);
 	}
-
-	checkGuessPhrase(){
-		return true;
+	checkGuessPhrase(game){
+		if(this.roundPhrase.toLowerCase() === $(".guess-input").val()){
+			game.player[game.playerInPlay].bank += game.player[game.playerInPlay].account
+			game.round.startNewRound(game.wheel, game.board)
+			$(game.player).each((i, player) => player.account = 0)
+		}else{
+			game.changePlayer()
+		}
+		domUpdates.closePhraseGuess()
 	}
 	checkPhraseIsCompleted(){
 		return true;

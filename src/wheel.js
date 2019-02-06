@@ -1,6 +1,5 @@
 
 import domUpdates from "./dom.js";
-import Game from "./game.js";
 
 class Wheel{
 	constructor(data){
@@ -25,34 +24,24 @@ class Wheel{
 		domUpdates.spinAnimation(wheelSpin);
 		setTimeout(() => {
 			domUpdates.displayWheelValue(this.currentWheelValue[valuePick])
-			console.log(this.currentWheelValue)
 		}, 5000)
 		setTimeout(() => {
-			this.addValueToPlayer(this.currentWheelValue[valuePick])
+			this.determinePlayer(game)
 			domUpdates.removeWheel()
 		}, 7000);
 		this.spinValue = this.currentWheelValue[valuePick];
-		this.determinePlayer(game)
-	}
+	};
 	determinePlayer(game){
 		if(this.spinValue === "BANKRUPT"){
 			game.player[game.playerInPlay].account = 0
+			domUpdates.updateScore(game);
 			game.changePlayer()
 		}else if(this.spinValue === "LOSE A TURN"){
 			game.changePlayer()
 		}else{
 			domUpdates.displayEnterLetter()
 		}
-	}
-	addValueToPlayer(valuePick){
-		if(typeof valuePick === "number"){
-			//add points to 
-		}else if(valuePick === "BANKRUPT"){
-			//remove all money from account
-		}else{
-			//skip turn 
-		}
-	}
+	};
 }
 
 export default Wheel;
