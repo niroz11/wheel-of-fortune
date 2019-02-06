@@ -12,18 +12,25 @@ class Bonus extends round {
 		this.vowels = ['a','e','i','o','u'];
 		this.bonusWheelValue = [1,10000,20000, 500, 5000, 30000];
 		this.bonusPhrase;
+		this.bonusPlayer;
 	}
 	grabPlayer(){
-
+		this.bonusPlayer = game.player.sort((numa, numb) => {
+			return numb.bank - numa.bank
+		}).shift()
 	}
-	grabMethod(){
+	grabPhrase(){
+		let numb = Math.floor(Math.random() * 24)
+		this.bonusPhrase = data.puzzles.four_word_answers.puzzle_bank[numb]
+	}
+	giveLetters(){
 
 	}
 	displayMethod(){
 
 	}
-	giveLetters(){
+	
+	displayWheel(){
 
 	}
-
 }
