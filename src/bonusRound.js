@@ -4,12 +4,13 @@ import Wheel from "./wheel.js";
 import Round from "./round.js";
 import $ from 'jquery';
 import Board from "./board.js";
+import domUpdates from "./dom.js";
 
 class Bonus extends round {
 	constructor(){
 		super()
-		this.letters = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z'];
-		this.vowels = ['a','e','i','o','u'];
+		this.letters = ['a','b','c','d', 'e', 'f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+		this.lettersGiven = [];
 		this.bonusWheelValue = [1,10000,20000, 500, 5000, 30000];
 		this.bonusPhrase;
 		this.bonusPlayer;
@@ -24,13 +25,19 @@ class Bonus extends round {
 		this.bonusPhrase = data.puzzles.four_word_answers.puzzle_bank[numb]
 	}
 	giveLetters(){
-
+		let numb = Math.floor(Math.random() * this.letters.length)
+		for(var i = 0; i < 5; i++){
+			this.lettersGiven.push(this.letters.splice(numb, 1))
+		}
 	}
 	displayMethod(){
-
+		domUpdates.
 	}
-	
-	displayWheel(){
 
+	displayWheel(){
+		domUpdates
+	}
+	displayPlayerPick(){
+		domUpdates
 	}
 }
