@@ -46,7 +46,7 @@ $(window).on("click", (e) => {
 $(window).on("click", (e) => {
     e.preventDefault()
     if($(e.target).hasClass("spin-button")){
-        game.wheel.spinWheel()
+        game.wheel.spinWheel(game)
     }
 });
 

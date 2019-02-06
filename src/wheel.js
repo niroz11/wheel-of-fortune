@@ -1,5 +1,6 @@
 
 import domUpdates from "./dom.js";
+import Game from "./game.js";
 
 class Wheel{
 	constructor(data){
@@ -18,7 +19,7 @@ class Wheel{
 			this.currentWheelValue.push(randomValue.shift());
 		};
 	};
-	spinWheel(){
+	spinWheel(game){
 		let valuePick = Math.floor(Math.random() * 6);
 		let wheelSpin =  valuePick * (Math.ceil(Math.random() * 3) * 360);
 		domUpdates.spinAnimation(wheelSpin);
@@ -31,6 +32,17 @@ class Wheel{
 			domUpdates.removeWheel()
 		}, 7000);
 		this.spinValue = this.currentWheelValue[valuePick];
+		this.determinePlayer(game)
+	}
+	determinePlayer(game){
+		if(this.spinValue === "BANKRUPT"){
+			game.player[game.playerInPlay].account = 0
+			game.changePlayer()
+		}else if(this.spinValue === "LOSE A TURN"){
+			game.changePlayer()
+		}else{
+			domUpdates.displayEnterLetter()
+		}
 	}
 	addValueToPlayer(valuePick){
 		if(typeof valuePick === "number"){
