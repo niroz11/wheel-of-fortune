@@ -19,7 +19,12 @@ class Board{
 			index = Math.floor(centerText/2 + 12);
 			break;
 			case 2:
-			// figure out equation for two word
+			if(this.roundData.correct_answer.length > 15){
+				let centerText = 14 - this.roundData.correct_answer.length;
+				index = Math.floor(centerText/2 + 12);
+			}else{
+				// make equation to split word to two array
+			}
 			break;
 			case 3:
 			// figure out equation for 3 words
@@ -35,24 +40,21 @@ class Board{
 		domUpdates.displayRoundClue(this.roundData)
 	}
 	checkLetter(game, letter){
-		if(!this.usedLetters.includes(letter)){
-			$('.display-used-letters').append(letter);
-		}
-		if(this.usedLetters.includes(letter)){
-			console.log("Pick another letter");
+		if(this.usedLetters.includes(letter) || this.vowels.includes(letter)){
+			domUpdates.pickLetterAlert()
 		}else if(this.roundPhrase.toLowerCase().includes(letter)  && !this.vowels.includes(letter)){
 			game.player[game.playerInPlay].account += game.wheel.spinValue;
-			alert("check letter right answer working")
 			this.usedLetters.push(letter);
+			$('.display-used-letters').append(letter);
+			domUpdates.flipCard(letter)
 			domUpdates.removeLetterDisplay()
 		}else{
 			game.changePlayer()
-			alert("check letter everything is wrong working")
 			this.usedLetters.push(letter);
+			$('.display-used-letters').append(letter);
 			domUpdates.removeLetterDisplay()
 		}
 		domUpdates.updateScore(game);
-		console.log(game.playerInPlay)
 	}
 	checkVowel(game, letter){
 		if(this.usedLetters.includes(letter) || !this.vowels.includes(letter)){
@@ -61,7 +63,8 @@ class Board{
 			game.player[game.playerInPlay].account -= 100;
 			this.usedLetters.push(letter);
 			$('.display-used-letters').append(letter);
-			domUpdates.removeVowelDisplay()
+			domUpdates.flipCard(letter);
+			domUpdates.removeVowelDisplay();
 		}else{
 			game.player[game.playerInPlay].account -= 100;
 			alert("check vowel you got it wrong");

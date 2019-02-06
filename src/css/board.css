@@ -12,6 +12,8 @@
 }
 
 td{
+	transform-style: preserve-3d;
+	position: relative;
 	text-align: center;
 	font-size: 2em;
 	border: 1px solid black;
@@ -19,6 +21,7 @@ td{
 	width: 80px;
 	background-color: #430580;
 	border-radius: 10px;
+	transition: 2s;
 }
 
 td:empty {
@@ -78,3 +81,60 @@ td:empty {
 		transform: rotatex(360deg)
 	}
 }
+
+
+.front-face {
+	z-index: 2;
+	border-radius: 10px;
+	position: absolute;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+    backface-visibility: hidden;
+}
+
+.back-face {
+	z-index: 2;
+	border-radius: 10px;
+	position: absolute;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+
+/* add this to the td */
+
+/* .study-card.flip-back {
+    animation: flipback 0.5s linear infinite;
+}
+
+.study-card.flip-front {
+    animation: flipfront 0.5s linear forwards;
+}
+
+@keyframes flipback {
+    0% {
+      transform: scale(1) rotateY(0);
+    }
+    50% {
+      transform: scale(0.4) rotateY(-90deg);
+    }
+    100% {
+      transform: scale(1) rotateY(-180deg);
+    }
+  }
+
+  @keyframes flipfront {
+    0% {
+    transform: scale(1) rotateY(-180deg);
+    }
+    50% {
+      transform: scale(0.4) rotateY(-90deg); 
+    }
+    100% {
+        transform: scale(1) rotateY(0);
+    }
+  } */

@@ -1,15 +1,16 @@
+// js
 import data from "./data.js"
 import Game from "./game.js"
 import $ from 'jquery';
-
+import domUpdates from "./dom.js";
+// css
 import "./css/game.css"
 import "./css/index.css"
 import "./css/player.css"
 import "./css/board.css"
 import "./css/wheel.css"
 import "./css/round.css"
-
-import domUpdates from "./dom.js";
+// image
 
 let game; 
 
@@ -30,9 +31,8 @@ $(window).on("click", (e) => {
 $(window).on("click", (e) => {
     e.preventDefault()
     if($(e.target).hasClass("vowel-display") && game.player[game.playerInPlay].account >= 100){
+        console.log(game.board.roundPhrase)
         domUpdates.dispalyBuyVowel()
-    }else{
-        console.log("you dont have enough")
     }
     return true;
 })
@@ -41,6 +41,7 @@ $(window).on("click", (e) => {
 $(window).on("click", (e) => {
     e.preventDefault()
     if($(e.target).hasClass("wheel-display")){
+        console.log(game.board.roundPhrase)
         domUpdates.displayWheel()
     }
 })
