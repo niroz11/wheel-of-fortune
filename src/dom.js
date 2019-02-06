@@ -106,7 +106,6 @@ export default {
 		$(".wheel-section").append(div);
 	},
 	removeWheel(){
-		this.displayEnterLetter()
 		$(".wheel-section").remove();
 		$(".show-value").remove();
 	},
