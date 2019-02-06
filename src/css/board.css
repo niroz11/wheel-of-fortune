@@ -19,13 +19,17 @@ td{
 	border: 1px solid black;
 	height: 80px;
 	width: 80px;
-	background-color: #430580;
+	background-color: rgba(67, 5, 128, 0.5);
 	border-radius: 10px;
-	transition: 2s;
+	border: none;
 }
 
 td:empty {
 	visibility: hidden;
+}
+
+.board-piece {
+	transition: 3s;
 }
 
 /* this is where ill display the used words */

@@ -11,11 +11,21 @@ import "./css/board.css"
 import "./css/wheel.css"
 import "./css/round.css"
 
+import "./images/planetone.png"
+import "./images/planettwo.png"
+import "./images/planetthree.png"
+import "./images/planetfour.png"
+import "./images/planetfive.png"
+import "./images/planetsix.png"
+import "./images/planetseven.png"
+
+
 let game; 
 
 $("#player-name").on("click", (e) => {
     game = new Game();
     game.setNewGame();
+    console.log(game.board.roundPhrase)
 });
 // this is to display the guess the whole phrase
 $(window).on("click", (e) => {
@@ -78,8 +88,3 @@ $(window).on("keydown", (e) => {
         game.board.checkVowel(game, e.key)
     }
 })
-
-
-
-
-

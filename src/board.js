@@ -19,12 +19,22 @@ class Board{
 			index = Math.floor(centerText/2 + 12);
 			break;
 			case 2:
-			if(this.roundData.correct_answer.length < 15){
+			console.log(this.roundData.correct_answer)
+			if(this.roundData.correct_answer.length < 13){
 				let centerText = 14 - this.roundData.correct_answer.length;
 				index = Math.floor(centerText/2 + 12);
 			}else{
-				console.log("hello word round two")
-			}
+				console.log("what up")
+				let wordone = this.roundData.correct_answer.split(" ")[0]
+				console.log(wordone)
+				let wordtwo = this.roundData.correct_answer.split(" ")[1]
+				console.log(wordtwo)
+				let centerTextone = 14 - wordone.length;
+				let indexone = Math.floor(centerTextone/2 + 12);
+				let centerTexttwo = 14 - wordtwo.length;
+				let indextwo = Math.floor(centerTexttwo/2 + 26);
+				domUpdates.displayRoundPhraseTwo(wordone, wordtwo, indexone, indextwo)
+				}
 			break;
 			case 3:
 			// figure out equation for 3 words

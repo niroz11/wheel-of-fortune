@@ -30,6 +30,7 @@
     "jquery": "^3.3.1",
     "mocha": "^5.2.0",
     "mochapack": "^1.0.0",
+    "particlesjs": "^2.2.3",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1",

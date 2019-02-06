@@ -5,8 +5,21 @@
 	width: 150px;
 	transform: translate(-50%, -50%);
 	animation: round 5s cubic-bezier(0.1, 0.8, 1, 0.1);
-	border: 3px solid white;
 	border-radius: 25px
+}
+
+.rocket {
+	z-index: -1;
+	position: absolute;
+	top: -80px;
+	left: -60px;
+	width: 150px;
+	transform: rotate(90deg)
+}
+
+.round-display h2 {
+	color: #000000;
+	width: 50px;
 }
 
 @keyframes round{
@@ -14,6 +27,6 @@
 		left: 0%;
 	}
 	100%{
-		left: 120%;
+		left: 125%;
 	}
 }

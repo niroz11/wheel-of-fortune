@@ -5,7 +5,8 @@ import Round from "./round.js";
 import $ from 'jquery';
 import Board from "./board.js";
 
-import url from "../wheel.png"
+import wheel from "../wheel.png"
+import rocket from "./images/rocket.png"
 
 export default {
 	// this is dom for displaying the name and changing the score 
@@ -29,14 +30,14 @@ export default {
 			if(word.split('')[i - index] !== ' '){
 			$(".front-face").eq(i).css("background-color", "white")[i - index]
 			}
-		}
-		
+		}	
 	},
 	// this is dom for displaying the round
 	displayRound(round){
 		let div = $(
 			`<div class="round-display">
-				<h2>Round ${round}</h2>
+				<img class="rocket" src=${rocket}>
+				<h2 class="rocket-text" >Round ${round}</h2>
 			</div>`
 		)
 		$(".option").prop("disabled",true);
@@ -96,7 +97,7 @@ export default {
 			`<section class="wheel-section">
 				<h2>player one</h2>
 				<div class="wheel">
-					<img class="wheelpic" src=${url}/>
+					<img class="wheelpic" src=${wheel}/>
 				</div>
 				<button class="spin-button">SPIN</button>
 			</section>`
@@ -157,9 +158,19 @@ export default {
 			$(".front-face").eq(i).css("background-color", "")
 			$(card).css("transform", "")
 		})
+	},
+	displayRoundPhraseTwo(arrayone, arraytwo, indexone, indextwo){
+		for(var i = indexone; i < indexone + arrayone.length; i++){
+			$(".back-face").eq(i).text(arrayone.split('')[i - indexone])
+			if(arrayone.split('')[i - indexone] !== ' '){
+			$(".front-face").eq(i).css("background-color", "white")[i - indexone]
+			}
+		}
+		for(var i = indextwo; i < indextwo + arraytwo.length; i++){
+			$(".back-face").eq(i).text(arraytwo.split('')[i - indextwo])
+			if(arraytwo.split('')[i - indextwo] !== ' '){
+			$(".front-face").eq(i).css("background-color", "white")[i - indextwo]
+			}
 	}
 }
-
-
-
-
+}
