@@ -78,6 +78,13 @@ export default {
 		)
 		$("body").append(div);
 	},
+	pickVowelAlert(){
+		$(".vowel-alert").remove()
+		let h2 = $(
+			`<h2 class="vowel-alert">pick a valid vowel</h2>`
+			)
+			$(".buy-vowel-section").append(h2);
+	},
 	removeVowelDisplay(){
 		$(".buy-vowel-section").remove()
 	},
@@ -112,16 +119,26 @@ export default {
 	displayEnterLetter(){
 		let div = $(
 			`<div class="pick-a-letter">
-				<p>use the keyboard to pick a letter</p>
+				<h2>use the keyboard to pick a letter</h2>
 			</div>`
 			)
 			$("body").append(div);
+	},
+	pickVowelAlert(){
+		$(".letter-alert").remove()
+		let h2 = $(
+			`<h2 class="letter-alert">pick a valid vowel</h2>`
+			)
+			$(".buy-vowel-section").append(h2);
 	},
 	removeLetterDisplay(){
 		$(".pick-a-letter").remove();
 	}, 
 	updateScore(game){
 		$(".display-score").eq(game.playerInPlay).text(game.player[game.playerInPlay].account);
+	},
+	flipCard(){
+		
 	}
 }
 

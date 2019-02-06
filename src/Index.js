@@ -29,8 +29,10 @@ $(window).on("click", (e) => {
 //this is to display the div to tell player to use keyboard to buy vowel
 $(window).on("click", (e) => {
     e.preventDefault()
-    if($(e.target).hasClass("vowel-display")){
+    if($(e.target).hasClass("vowel-display") && game.player[game.playerInPlay].account >= 100){
         domUpdates.dispalyBuyVowel()
+    }else{
+        console.log("you dont have enough")
     }
     return true;
 })

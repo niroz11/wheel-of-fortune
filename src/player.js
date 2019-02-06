@@ -1,7 +1,7 @@
 class Player{
 	constructor(name){
 		this.name = name;
-		this.account = 0;
+		this.account = 500;
 		this.bank = 0;
 	}
 }

@@ -29,17 +29,20 @@ class Wheel{
 		}, 5000)
 		setTimeout(() => {
 			this.addValueToPlayer(this.currentWheelValue[valuePick])
+			this.determinePlayer(game)
 			domUpdates.removeWheel()
 		}, 7000);
 		this.spinValue = this.currentWheelValue[valuePick];
-		this.determinePlayer(game)
 	}
 	determinePlayer(game){
 		if(this.spinValue === "BANKRUPT"){
 			game.player[game.playerInPlay].account = 0
+			domUpdates.updateScore(game);
 			game.changePlayer()
+			console.log(game.playerInPlay)
 		}else if(this.spinValue === "LOSE A TURN"){
 			game.changePlayer()
+			console.log(game.playerInPlay)
 		}else{
 			domUpdates.displayEnterLetter()
 		}

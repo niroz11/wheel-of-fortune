@@ -39,7 +39,7 @@ class Board{
 			$('.display-used-letters').append(letter);
 		}
 		if(this.usedLetters.includes(letter)){
-			alert("Pick another letter");
+			console.log("Pick another letter");
 		}else if(this.roundPhrase.toLowerCase().includes(letter)  && !this.vowels.includes(letter)){
 			game.player[game.playerInPlay].account += game.wheel.spinValue;
 			alert("check letter right answer working")
@@ -52,23 +52,22 @@ class Board{
 			domUpdates.removeLetterDisplay()
 		}
 		domUpdates.updateScore(game);
-
+		console.log(game.playerInPlay)
 	}
 	checkVowel(game, letter){
-		game.player[game.playerInPlay].account -= 100;
-		if(!this.usedLetters.includes(letter)){
-			$('.display-used-letters').append(letter);
-		}
-		if(this.usedLetters.includes(letter) && this.vowels.includes(letter)){
-			alert("check vowel pick another vowel working ")
-		}else if(this.roundPhrase.toLowerCase().includes(letter)){
-			alert("check vowel you got it right working");
+		if(this.usedLetters.includes(letter) || !this.vowels.includes(letter)){
+			domUpdates.pickVowelAlert()
+		}else if(this.roundPhrase.toLowerCase().includes(letter) && this.vowels.includes(letter)){
+			game.player[game.playerInPlay].account -= 100;
 			this.usedLetters.push(letter);
+			$('.display-used-letters').append(letter);
 			domUpdates.removeVowelDisplay()
 		}else{
+			game.player[game.playerInPlay].account -= 100;
 			alert("check vowel you got it wrong");
 			this.usedLetters.push(letter);
-			domUpdates.removeVowelDisplay()
+			$('.display-used-letters').append(letter);
+			domUpdates.removeVowelDisplay();
 		}
 		domUpdates.updateScore(game);
 	}
