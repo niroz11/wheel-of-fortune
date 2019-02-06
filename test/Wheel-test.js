@@ -10,10 +10,12 @@ describe('Wheel', function() {
   		wheel = new Wheel([1,2,3,4,5,6]);
   	})
 
-it('should have default properties', function(){
-	expect(wheel.wheelValue).to.be.();
-})
 
+it('should have default properties',function(){
+	
+	wheel = new Wheel([1,2,3,4,5,6]);
+	assert(wheel.spinValue.to.equal.to());
+})
 
 
 
