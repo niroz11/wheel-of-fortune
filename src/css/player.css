@@ -16,14 +16,16 @@
 	border-radius: 20%;
   border-width: 10px;
   border-style:solid;
-  float:left;
+  /*float:left;*/
   transition:
     background-color 300ms ease-out; 
 }
 .box span{
 	width:50px;
-	height:50px;	
-	display: table-cell; 
+	height:50px;
+	padding-left: 60px;
+	padding-top: 30px;	
+	/*display: table-cell; */
 	vertical-align: middle; 
 	text-align: center;
 	line-height:20px;
@@ -42,18 +44,40 @@
 	line-height:35px;
   	color: red;
 }
+.box input{
+	opacity:0.5;
+	margin-left: 60px;
+	margin-top:20px;
+}
 .box:hover input{
 	position:absolute;
-  display:block;
+  /*display:block;*/
   height: 20px;
-  top:66px;
-  left: 35px;
+  top:30px;
+ /* left: 10px;*/
   width: 130px;
-  padding: 10px;
+  /*padding: 10px;*/
   color: black;
   transition: opacity 300ms ease;
   opacity:1;
+  display: block;
 }
+
+.option{
+	background-color:red;
+}
+
+.display-score{
+	font-size: 30px;
+	text-align: center;
+	color: yellow;
+}
+
+.display-name{
+	text-align: center;
+	margin-right:20px;
+}
+
 
 /*.player-two{
 	background: #83894f; 
