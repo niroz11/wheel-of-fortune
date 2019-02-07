@@ -9,7 +9,6 @@ import wheel from "../wheel.png"
 import rocket from "./images/rocket.png"
 
 export default {
-	// this is dom for displaying the name and changing the score 
 	displayname(game){
 		$(".input").remove()
 		$("#player-name").remove()
@@ -18,11 +17,11 @@ export default {
 			$(".display-score").eq(i).text(game.player[i].account)
 		}
 	},
-	// this is going to display the round clue
+	
 	displayRoundClue(clue){
 		$(".clue-banner").text(clue.category)
 	},
-	// this is going to display the round phrase
+	
 	displayRoundPhrase(board ,phrase, index){
 		let word = phrase.correct_answer.split('-').join(' ')
 		for(var i = index; i < index + word.length; i++){
@@ -32,7 +31,7 @@ export default {
 			}
 		}	
 	},
-	// this is dom for displaying the round
+	
 	displayRound(round){
 		let div = $(
 			`<div class="round-display">
@@ -47,7 +46,7 @@ export default {
 			$(".option").prop("disabled",false);
 		}, 5000)
 	},
-	// this is dom for the three buttons
+	
 	displayOption(){
 		let div = $(
 			`<div class="option-display">
@@ -58,7 +57,7 @@ export default {
 		);
 		$(".letters-board").append(div);
 	},
-	// this is dom for the guess the whole phrase
+	
 	displayGuessphrase(){
 		let div = $(
 			`<section class="guess-phrase-section">
@@ -68,11 +67,12 @@ export default {
 			</section>`
 		)
 		$("body").append(div);
+	
 	},
 	closePhraseGuess(){
 		$(".guess-phrase-section").remove()
 	},
-	//this is the dom for buy a value 
+	
 	dispalyBuyVowel(game){
 		let div = $(
 				`<section class="buy-vowel-section">
@@ -91,7 +91,7 @@ export default {
 	removeVowelDisplay(){
 		$(".buy-vowel-section").remove()
 	},
-	// this is dom for the wheel
+	
 	displayWheel(){
 		let div = $(
 			`<section class="wheel-section">

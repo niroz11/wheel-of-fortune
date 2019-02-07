@@ -25,7 +25,7 @@ let game;
 $("#player-name").on("click", (e) => {
     game = new Game();
     game.setNewGame();
-    console.log(game.board.roundPhrase)
+    
 });
 // this is to display the guess the whole phrase
 $(window).on("click", (e) => {

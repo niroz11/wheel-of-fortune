@@ -1,7 +1,7 @@
 
 .word-bank-board{
 	height: 15%;
-	/* for the background add flat white spry can banner on it */
+	
 }
 
 .letters-board{
@@ -32,7 +32,7 @@ td:empty {
 	transition: 3s;
 }
 
-/* this is where ill display the used words */
+
 .display-used-letters {
 	text-align: center;
 	font-size: 3em;
