@@ -7,14 +7,12 @@ import $ from "jquery"
 import spies from 'chai-spies';
 chai.use(spies);
 
-chai.spy.on(domUpdates, ['displayRoundClue', 'displayRoundPhrase', 'updateScore' ], () => true);
+chai.spy.on(domUpdates, ['displayRoundClue', 'displayRoundPhrase', 'updateScore', 'closePhraseGuess' ], () => true);
 
 describe('Board', function() {
     let board
-    let game
     beforeEach(() =>{
         board = new Board()
-        game = new Game()
     })
 	it("should pass the test", () => {
         expect(true).to.equal(true);
