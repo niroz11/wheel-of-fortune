@@ -1,14 +1,16 @@
 
 .guess-phrase-section {
+	font-size: 3em;
+	text-align: center;
 	position: absolute;
 	text-shadow: 2px 2px 5px #000000;
-	background-color: #be5502;
+	background-color:  rgba(67, 5, 128, 0.5);
 	height: 400px;
 	width: 800px;
 	left: 50%;
 	top: 50%;
 	transform: translate( -50%, -50%);
-	color: #df9f27;
+	color:antiquewhite;
 	border-radius: 25px;
 	border: 8px solid #ffffff;
 }
@@ -21,15 +23,17 @@
 /* this is the dispaly for buy vowel */
 
 .buy-vowel-section {
+	font-size: 3em;
+	text-align: center;
 	position: absolute;
 	text-shadow: 2px 2px 5px #000000;
-	background-color: #be5502;
+	background-color: rgba(67, 5, 128, 0.5);
 	height: 400px;
 	width: 800px;
 	left: 50%;
 	top: 50%;
 	transform: translate( -50%, -50%);
-	color: #df9f27;
+	color: antiquewhite;
 	border-radius: 25px;
 	border: 8px solid #ffffff;
 }
@@ -44,15 +48,17 @@
 /*  this display the instructions to dispaly the letter */
 
 .pick-a-letter{
+	font-size: 3em;
+	text-align: center;
 	position: absolute;
 	text-shadow: 2px 2px 5px #000000;
-	background-color: #be5502;
+	background-color: rgba(67, 5, 128, 0.5);
 	height: 400px;
 	width: 800px;
 	left: 50%;
 	top: 50%;
 	transform: translate( -50%, -50%);
-	color: #df9f27;
+	color: antiquewhite;
 	border-radius: 25px;
 	border: 8px solid #ffffff;
 }
@@ -109,10 +115,7 @@ z-index: -1;
 	position: absolute;
 	z-index: -1;
 	animation: move 5s infinite;
-}
-
-.planet:nth-child(0) {
-	top: 100px;
+	top: 80px;
 	left: 100px;
 }
 .planet:nth-child(1) {
@@ -142,12 +145,27 @@ z-index: -1;
 
 @keyframes move {
 	0%{
-
+		transform: translate( 0% , 0%)
 	}
 	50%{
-
+		transform: translate( 0% , 10%)
 	}
 	100%{
-		
+		transform: translate( 0% , 0%)
 	}
+}
+
+.guess-input {
+	font-size: 1em;
+	color: black;
+	border-radius: 10px;
+}
+
+.submit-guess-phrase {
+	color: black;
+	border-radius: 25px;
+	display: block;
+	margin: 10px auto;
+	height: 50px;
+	width: 100px;
 }

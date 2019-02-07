@@ -1,8 +1,8 @@
 // js
 import data from "./data.js"
-import Game from "./game.js"
+import Game from "./Game.js"
 import $ from 'jquery';
-import domUpdates from "./dom.js";
+import domUpdates from "./Dom.js";
 // css
 import "./css/game.css"
 import "./css/index.css"
@@ -87,4 +87,9 @@ $(window).on("keydown", (e) => {
     if($(".buy-vowel-section")[0]){
         game.board.checkVowel(game, e.key)
     }
+})
+
+$(".planet").each((i, planet) => {
+    let numb = Math.floor(Math.random() * 5)
+    $(planet).css("animation-delay", `${-1 * numb}s`)
 })

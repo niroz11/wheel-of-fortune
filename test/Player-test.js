@@ -1,11 +1,27 @@
-import chai from 'chai';
-const expect = chai.expect;
+import chai, { expect } from 'chai';
+import Player from "../src/Player.js"
 
 global.$ = require('jquery')
 
 describe('Player', function() {
-	it("should pass the test", () => {
+	let player
+    beforeEach(() =>{
+        player = new Player()
+    })
+    it("should pass the test", () => {
         expect(true).to.equal(true)
+    })
+    it("should be a object", () => {
+        expect(player).to.be.an('object');
+    })
+    it("should have a default setting", () => {
+        expect(player.name).to.deep.equal(undefined);
+        expect(player.account).to.deep.equal(0);
+        expect(player.bank).to.deep.equal(0);
+    })
+    it("should accept a name", () => {
+        let player = new Player("duy")
+        expect(player.name).to.equal("duy")
     })
 })
 

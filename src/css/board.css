@@ -57,7 +57,7 @@ td:empty {
 	z-index: 2;
 	border-radius: 10px;
 	position: absolute;
-	top: 0px;
+	top: 20px;
 	height: 100%;
 	width: 100%;
     backface-visibility: hidden;

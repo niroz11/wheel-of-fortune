@@ -1,10 +1,10 @@
 import data from "./data.js"
-import Player from "./player.js"
-import Wheel from "./wheel.js"
-import Round from "./round.js"
-import Board from "./board.js"
+import Player from "./Player.js"
+import Wheel from "./Wheel.js"
+import Round from "./Round.js"
+import Board from "./Board.js"
 import $ from 'jquery';
-import domUpdates from "./dom.js";
+import domUpdates from "./Dom.js";
 
 class Game{
 	constructor(){
@@ -15,6 +15,7 @@ class Game{
 		this.wheel;
 		this.round;
 		this.board;
+		this.bonus;
 	}
 	setNewGame(round){
 		this.addPlayer()

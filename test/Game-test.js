@@ -1,39 +1,25 @@
-import chai from 'chai';
-const expect = chai.expect;
-const Game = require('../src/game/game.js')
-global.Player = require('../src/player/player.js')
+import chai, { expect } from 'chai';
+import Game from '../src/Game.js';
+import domUpdates from "../src/Dom.js"
+import spies from 'chai-spies';
+chai.use(spies);
 
 global.$ = require('jquery')
 
 describe('Game', function() {
-	var game;
-	
-  	beforeEach(function(){
+	let game	
+  	beforeEach(() => {
   		game = new Game();
-  	})
+	  })
+	//   chai.spy.on(domUpdates, '', () => true);
+	it("should pass this test", () => {
+		expect(true).to.equal(true)
+	})
 
-it('it should add player', function(){
-	// var player1 = new Player('Heather');
-	// var player2 = new Player('Niraj');
-	// var player3 = new Player('Gabe');
-	game.addPlayer();
-	// expect(game.player).to.equal.length(3);
-
-});
-
-it('should spin wheel',function(){
-	
+	// it('should spin wheel',function(){
+		
+	// })
 })
 
-
-
-
-
-
-
-
-
-
-});
 
 

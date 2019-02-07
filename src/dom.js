@@ -1,11 +1,11 @@
-import Game from "./game.js";
+import Game from "./Game.js";
 import data from "./data.js"
-import Wheel from "./wheel.js";
-import Round from "./round.js";
+import Wheel from "./Wheel.js";
+import Round from "./Round.js";
 import $ from 'jquery';
-import Board from "./board.js";
+import Board from "./Board.js";
 
-import wheel from "../wheel.png"
+import wheel from "./images/wheel.png"
 import rocket from "./images/rocket.png"
 
 export default {
@@ -23,12 +23,12 @@ export default {
 		$(".clue-banner").text(clue.category)
 	},
 	// this is going to display the round phrase
-	displayRoundPhrase(board ,phrase, index){
+	displayRoundPhrase(phrase){
 		let word = phrase.correct_answer.split('-').join(' ')
-		for(var i = index; i < index + word.length; i++){
-			$(".back-face").eq(i).text(word.split('')[i - index])
-			if(word.split('')[i - index] !== ' '){
-			$(".front-face").eq(i).css("background-color", "white")[i - index]
+		for(var i = 12; i < 12 + word.length; i++){
+			$(".back-face").eq(i).text(word.split('')[i - 12])
+			if(word.split('')[i - 12] !== ' '){
+			$(".front-face").eq(i).css("background-color", "white")[i - 12]
 			}
 		}	
 	},
@@ -95,7 +95,6 @@ export default {
 	displayWheel(){
 		let div = $(
 			`<section class="wheel-section">
-				<h2>player one</h2>
 				<div class="wheel">
 					<img class="wheelpic" src=${wheel}/>
 				</div>
@@ -154,6 +153,7 @@ export default {
 	},
 	resetRound(){
 		$(".board-piece").each((i, card) => {
+			$(".display-used-letters").text('')
 			$(".back-face").eq(i).text("")
 			$(".front-face").eq(i).css("background-color", "")
 			$(card).css("transform", "")
@@ -171,6 +171,22 @@ export default {
 			if(arraytwo.split('')[i - indextwo] !== ' '){
 			$(".front-face").eq(i).css("background-color", "white")[i - indextwo]
 			}
+		}
+	},
+	moveAlien(game){
+		$(".alien-ship").css("transform", "")
+		if(game.playerInPlay === 0){
+			console.log('playerone')
+			$(".alien-ship").css("transform", "")
+		}else if(game.playerInPlay === 1){
+			$(".alien-ship").css("transform", "")
+			console.log("player two")
+		}else{
+			$(".alien-ship").css("transform", "")
+			console.log("palyer three")
+		}
+	},
+	lettersPick(letters){
+		$(".display-used-letters").text(letters.join(''))
 	}
-}
 }

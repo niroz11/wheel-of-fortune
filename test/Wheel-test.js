@@ -1,10 +1,11 @@
-import chai from 'chai';
-const expect = chai.expect;
-const Wheel = require('../src/wheel/wheel.js')
-const data = require('../src/index/data.js')
+import chai, { expect } from 'chai';
+import Wheel from "../src/Wheel.js"
+import data from "../src/data.js"
+import spies from 'chai-spies';
+chai.use(spies);
 
-var wheel;
 describe('Wheel', function() {
+	let wheel;
 	
   	beforeEach(function(){
   		wheel = new Wheel([1,2,3,4,5,6]);
@@ -26,6 +27,5 @@ it('it should set wheel value', function(){
 
 });
 
-module.exports = Wheel;
 
 

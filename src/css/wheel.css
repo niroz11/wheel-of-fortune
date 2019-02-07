@@ -1,13 +1,13 @@
 .wheel-section {
 	text-shadow: 2px 2px 5px #000000;
-	background-color: #be5502;
+	background-color: rgba(67, 5, 128, 0.5);
 	position: absolute;
 	height: 400px;
 	width: 800px;
 	left: 50%;
 	top: 50%;
 	transform: translate( -50%, -50%);
-	color: #df9f27;
+	color:antiquewhite;
 	border-radius: 25px;
 	border: 8px solid #ffffff;
 }
@@ -36,6 +36,7 @@
 	left: 50%;
 	transform: translate( -50% ,0);
 	border-radius: 25px;
+	color: black;
 }
 
 .show-value {
@@ -46,6 +47,10 @@
 	top: 50%;
 	font-size: 5em;
 	transform: translate( -50%, -50%);
+}
+
+.show-value h2 {
+	color: black;
 }
 
 .wheelpic {
