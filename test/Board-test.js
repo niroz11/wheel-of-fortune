@@ -1,14 +1,17 @@
-import chai, { expect }from 'chai';
+import chai from 'chai';
+const expect = chai.expect
 import Board from '../src/board';
 import domUpdates from "../src/dom.js"
+import Game from '../src/game';
+import $ from "jquery"
 import spies from 'chai-spies';
 chai.use(spies);
 
-
-global.$ = require('jquery')
+chai.spy.on(domUpdates, ['displayRoundClue', 'displayRoundPhrase', 'updateScore' ], () => true);
 
 describe('Board', function() {
     let board
+    let game
     beforeEach(() =>{
         board = new Board()
     chai.spy.on(domUpdates, 'displayRoundClue', () => true);
@@ -33,6 +36,20 @@ describe('Board', function() {
         board.placeClueOnTheGame()
         expect(domUpdates.displayRoundClue).to.have.been.called(1)
         expect(domUpdates.displayRoundClue).to.have.been.called.with(board.roundData)
+    })
+    it("shoul be able to display the round phrase", () => {
+        board.placePhraseOnBoard()
+        expect(domUpdates.displayRoundPhrase).to.have.been.called(1)
+    })
+    it("should update score when player enters a letter", () => {
+        board.roundPhrase = "hello"
+        board.checkLetter()
+        expect(domUpdates.updateScore).to.have.been.called(1)
+    })
+    it("should close the phrase section after guessing", () => {
+        board.roundPhrase = "hello"
+        board.checkGuessPhrase()
+        expect(domUpdates.closePhraseGuess).to.have.been.called(1)
     })
     
 })
