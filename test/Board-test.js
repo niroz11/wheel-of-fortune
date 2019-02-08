@@ -14,7 +14,11 @@ describe('Board', function() {
     let game
     beforeEach(() =>{
         board = new Board()
-        game = new Game()
+    chai.spy.on(domUpdates, 'displayRoundClue', () => true);
+    });
+
+    afterEach(() => {
+        chai.spy.restore(domUpdates)
     })
 	it("should pass the test", () => {
         expect(true).to.equal(true);
@@ -31,6 +35,7 @@ describe('Board', function() {
     it("should be able to display the round clue", () => {
         board.placeClueOnTheGame()
         expect(domUpdates.displayRoundClue).to.have.been.called(1)
+        expect(domUpdates.displayRoundClue).to.have.been.called.with(board.roundData)
     })
     it("shoul be able to display the round phrase", () => {
         board.placePhraseOnBoard()

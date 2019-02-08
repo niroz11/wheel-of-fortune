@@ -8,7 +8,7 @@ import Board from "./Board.js";
 import wheel from "./images/wheel.png"
 import rocket from "./images/rocket.png"
 
-export default {
+const domUpdates = {
 	// this is dom for displaying the name and changing the score 
 	displayname(game){
 		$(".input").remove()
@@ -188,5 +188,12 @@ export default {
 	},
 	lettersPick(letters){
 		$(".display-used-letters").text(letters.join(''))
+	},
+	pushPlayer(game){
+		$(".playerName").each((i, name) => {
+			game.player.push(new Player($(name).val()))
+		})
 	}
 }
+
+export default domUpdates;
