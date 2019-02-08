@@ -2,7 +2,7 @@ import chai, { expect } from 'chai';
 import Game from '../src/Game.js'
 import Player from '../src/player.js'
 import Wheel from '../src/Wheel.js'
-import domUpdates from '../src/dom.js'
+import domUpdates from '../src/Dom.js'
 import data from '../src/data.js'
 import spies from 'chai-spies';
 chai.use(spies);
@@ -23,8 +23,7 @@ describe('Wheel', function() {
   	afterEach(() => {
   		chai.spy.restore(domUpdates);
   	})
-
-	  it("should be a object", () => {
+	it("should be a object", () => {
         expect(wheel).to.be.an('object');
     })
     it("should have a default setting", () => {
@@ -37,6 +36,7 @@ describe('Wheel', function() {
 		expect(wheel.currentWheelValue).to.have.length(6);
 	})
 	it("should be able to spin the wheel and set a value", () => {
+		wheel.currentWheelValue = [1,2,3,4,5,6]
 		wheel.spinWheel()
 		expect(wheel.spinValue).to.be.an("number")
 	})

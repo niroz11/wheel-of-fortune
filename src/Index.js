@@ -34,7 +34,6 @@ $(window).on("click", (e) => {
 $(window).on("click", (e) => {
     e.preventDefault()
     if($(e.target).hasClass("vowel-display") && game.player[game.playerInPlay].account >= 100){
-        console.log(game.board.roundPhrase)
         domUpdates.dispalyBuyVowel()
     }
     return true;
@@ -42,7 +41,6 @@ $(window).on("click", (e) => {
 $(window).on("click", (e) => {
     e.preventDefault()
     if($(e.target).hasClass("wheel-display")){
-        console.log(game.board.roundPhrase)
         domUpdates.displayWheel()
     }
 })
@@ -86,10 +84,7 @@ $(window).on("click", (e) => {
     }
 })
 $(window).on("keydown", (e) => {
-    console.log($('.letter').val().length)
-    console.log($('.letter').val())
         if($('.letter').val().length === 3){
-            console.log("its workign asdf")
             game.bonus.displayPlayersPickLetter($('.letter').val())
             domUpdates.displayBonusphrase(game.bonus.guesses)
             $('.bonus-letter-section').remove()

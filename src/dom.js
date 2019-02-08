@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Player from "./Player.js"
 
 import wheel from "./images/wheel.png"
 import rocket from "./images/rocket.png"
@@ -233,11 +234,10 @@ export default {
 			</section>`
 		)
 		$("body").append(div);
-	pushPlayer(game){
+		},
+		pushPlayer(game){
 		$(".playerName").each((i, name) => {
 			game.player.push(new Player($(name).val()))
 		})
 	}
 }
-
-export default domUpdates;

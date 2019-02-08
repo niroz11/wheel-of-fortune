@@ -124,6 +124,7 @@ class Bonus extends Round{
            this.bonusPlayer.bank += this.bonusPoint
            domUpdates.displayEnd(this.bonusPlayer)
            $(".guess-bonus-section").remove()
+           domUpdates.displayEnd(this.bonusPlayer)
        }else if(input !== this.bonusPhrase.correct_answer && this.guesses > 1){
             this.guesses--
             $(".guess-bonus-section").remove()

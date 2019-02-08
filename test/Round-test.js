@@ -2,24 +2,20 @@ import chai, { expect } from 'chai';
 import Round from "../src/Round.js";
 import data from "../src/data.js";
 import spies from 'chai-spies';
-import Game from "../src/Game.js"
 import Wheel from "../src/Wheel.js"
-import board from "../src/Board.js"
 import domUpdates from "../src/Dom.js"
 import Board from '../src/Board.js';
 chai.use(spies);
 
-
 describe('Round', function() {
     let round
-    let board
-    let wheel
     beforeEach(() =>{
         round = new Round(Object.values(data)[2]);
-        wheel = new Wheel(Object.values(data)[1]);
-        board = new Board();
+        chai.spy.on(domUpdates, [ 'resetRound', 'updateAllScore', 'displayRound'], () => true);
     })
-    chai.spy.on(domUpdates, ['displayRound', 'resetRound', 'updateAllScore', 'displayRoundClue', 'displayRoundPhrase'], () => true);
+    afterEach(() => {
+        chai.spy.restore(domUpdates)
+    })
     it("should be a object", () => {
         expect(round).to.be.an('object');
     })

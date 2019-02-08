@@ -1,24 +1,18 @@
 import chai, { expect } from 'chai';
-import Board from '../src/board';
-import domUpdates from "../src/dom.js"
+import Board from '../src/Board';
+import domUpdates from "../src/Dom.js"
 
 import spies from 'chai-spies';
 chai.use(spies);
-
-chai.spy.on(domUpdates, ['displayRound', 'updateScore', 'closePhraseGuess', 'displayRoundClue', 'displayRoundPhrase', 'displayGuessphrase'], () => true);
 
 describe('Board', function() {
     let board
     beforeEach(() =>{
         board = new Board()
-    chai.spy.on(domUpdates, 'displayRoundClue', () => true);
+        chai.spy.on(domUpdates, ['displayRound', 'updateScore', 'closePhraseGuess', 'displayRoundClue', 'displayRoundPhrase', 'displayGuessphrase'], () => true);
     });
-
     afterEach(() => {
         chai.spy.restore(domUpdates)
-    })
-	it("should pass the test", () => {
-        expect(true).to.equal(true);
     })
     it("should be a object", () => {
         expect(board).to.be.an('object');
