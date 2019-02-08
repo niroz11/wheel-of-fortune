@@ -7,6 +7,9 @@
 
 web application where you can play your favorite game show wheel of fortune. the application allows you to bring back those good memories of sitting on the couch watching the tv show to your screen where you can interact with.
 
+## Click Here To Play
+https://niroz11.github.io/wheel-of-fortune/
+
 ## Getting Started:
 
 These instructions will get a copy of the project up and running on your local machine for usage and testing purposes. 

@@ -1,0 +1,73 @@
+.bonus-spin-button {
+    outline: none;
+	position: absolute;
+	height: 50px;
+	width: 300px;
+	bottom: 20px;
+	left: 50%;
+	transform: translate( -50% ,0);
+	border-radius: 25px;
+	color: black;
+}
+
+.bonus-letter-section {
+    text-shadow: 2px 2px 5px #000000;
+	background-color: rgba(67, 5, 128, 0.5);
+	position: absolute;
+	height: 400px;
+	width: 800px;
+	left: 50%;
+	top: 50%;
+	transform: translate( -50%, -50%);
+	color:antiquewhite;
+	border-radius: 25px;
+}
+
+.players-places {
+    text-shadow: 2px 2px 5px #000000;
+	background-color: rgba(67, 5, 128, 0.5);
+	position: absolute;
+	height: 400px;
+	width: 800px;
+	left: 50%;
+	top: 50%;
+	transform: translate( -50%, -50%);
+	color:antiquewhite;
+	border-radius: 25px;
+}
+
+.player-score-container {
+    text-align: center;
+    padding: 10px;
+    margin: 20px auto;
+    border-radius: 25px;
+    height: 50px;
+    width: 300px;
+    background-color: white;
+} 
+
+.player-score-container h3 {
+    text-align: center;
+    font-size: 1em;
+    color: black;
+    text-shadow: none;
+}
+
+.bonus-submit-guess {
+    margin: 10px auto;
+}
+
+.guess-bonus-section{
+    font-size: 3em;
+	text-align: center;
+	position: absolute;
+	text-shadow: 2px 2px 5px #000000;
+	background-color:  rgba(67, 5, 128, 0.5);
+	height: 400px;
+	width: 800px;
+	left: 50%;
+	top: 50%;
+	transform: translate( -50%, -50%);
+	color:antiquewhite;
+	border-radius: 25px;
+}

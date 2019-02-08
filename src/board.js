@@ -1,5 +1,6 @@
 import domUpdates from "./Dom.js";
 import $ from "jquery";
+
 class Board{
 	constructor(){
 		this.roundData;
@@ -8,7 +9,7 @@ class Board{
 		this.vowels = ["e","u","i","o","a"]
 	}
 	grabPhraseForRound(round){
-		this.roundData = (round.gameQuestions.shift())
+		this.roundData = (round.shift())
 		this.roundPhrase = this.roundData.correct_answer
 	}
 	placePhraseOnBoard(){
@@ -54,7 +55,6 @@ class Board{
 	checkGuessPhrase(game){
 		if(this.roundPhrase.toLowerCase() === $(".guess-input").val()){
 			game.player[game.playerInPlay].bank += game.player[game.playerInPlay].account
-
 			$(game.player).each((i, player) => player.account = 0)
 			game.round.resetRound(game)
 		}else{
