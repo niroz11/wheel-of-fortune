@@ -1,5 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
+import Game from '../src/Game.js'
+import Player from '../src/player.js'
 import Wheel from '../src/Wheel.js'
 import domUpdates from '../src/dom.js'
 import data from '../src/data.js'
@@ -37,13 +39,18 @@ it('it should spin the wheel', function(){
 	// expect(domUpdates.displayWheelValue).to.have.been.called(1);
 	// expect(domUpdates.removeWheel).to.have.been.called(1);
 	 expect(wheel.spinValue).that.is.a('number');
-
 })
 
-it('it should spin the wheel', function(){
-	let game = new Game();
+it('it should invoke updateScore when determinePlayer', function(){
+	//setup
+	let game = new Game(data);
+	let player = new Player();
 	wheel.spinValue = "BANKRUPT";
+	game.player = [{name:'bob',account:0, bank:0},{name:'niraj',account:0, bank:0},{name:'justin',account:0, bank:0},]
+	//execution
 	wheel.determinePlayer(game);
+	//expectation
+	expect(domUpdates.updateScore).to.have.been.called(1);
 
 })
 

@@ -33,7 +33,7 @@ class Wheel{
 	};
 	determinePlayer(game){
 		if(this.spinValue === "BANKRUPT"){
-			game.player[game.playerInPlay].account = 0
+			game.player[game.playerInPlay].account = 0;
 			domUpdates.updateScore(game);
 			game.changePlayer()
 		}else if(this.spinValue === "LOSE A TURN"){
