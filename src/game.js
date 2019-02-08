@@ -1,10 +1,11 @@
+import chai, { expect }from 'chai';
 import data from "./data.js"
 import Player from "./Player.js"
 import Wheel from "./Wheel.js"
 import Round from "./Round.js"
 import Board from "./Board.js"
 import $ from 'jquery';
-import domUpdates from "./Dom.js";
+import domUpdates from "./dom.js";
 
 class Game{
 	constructor(){
@@ -25,9 +26,11 @@ class Game{
 		this.round.setupround(this.wheel, this.board)
 	}
 	addPlayer(){
-		$(".playerName").each((i, name) => {
-			this.player.push(new Player($(name).val()))
-		})
+		// $(".playerName").each((i, name) => {
+		// 	this.player.push(new Player($(name).val()))
+		// })
+
+		domUpdates.pushPlayer(this);
 		domUpdates.displayname(this)
 	}
 	changePlayer(){

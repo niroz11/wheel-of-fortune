@@ -11,8 +11,12 @@ describe('Board', function() {
     let board
     beforeEach(() =>{
         board = new Board()
-    })
     chai.spy.on(domUpdates, 'displayRoundClue', () => true);
+    });
+
+    afterEach(() => {
+        chai.spy.restore(domUpdates)
+    })
 	it("should pass the test", () => {
         expect(true).to.equal(true);
     })
@@ -26,6 +30,8 @@ describe('Board', function() {
         expect(board.vowels).to.deep.equal(["e","u","i","o","a"]);
     })
     it("should be able to display the round clue", () => {
+        board.placeClueOnTheGame()
+        expect(domUpdates.displayRoundClue).to.have.been.called(1)
         expect(domUpdates.displayRoundClue).to.have.been.called.with(board.roundData)
     })
     

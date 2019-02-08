@@ -1,5 +1,5 @@
 
-import domUpdates from "./Dom.js";
+import domUpdates from "./dom.js";
 
 class Wheel{
 	constructor(data){
