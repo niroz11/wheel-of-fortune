@@ -3,6 +3,7 @@ import $ from 'jquery';
 import wheel from "./images/wheel.png"
 import rocket from "./images/rocket.png"
 
+
 export default {
 	displayname(game){
 		$(".input").remove()
@@ -232,5 +233,11 @@ export default {
 			</section>`
 		)
 		$("body").append(div);
+	pushPlayer(game){
+		$(".playerName").each((i, name) => {
+			game.player.push(new Player($(name).val()))
+		})
 	}
 }
+
+export default domUpdates;
