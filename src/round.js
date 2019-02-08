@@ -1,10 +1,6 @@
-import Game from "./Game.js";
 import data from "./data.js"
-import Wheel from "./Wheel.js";
-import Board from "./Board.js";
 import $ from 'jquery';
 import domUpdates from "./Dom.js";
-import Bonus from "./BonusRound.js";
 
 export default class Round{
     constructor(data){
@@ -15,31 +11,32 @@ export default class Round{
     }
     setupround(wheel, board){
         this.parseDataForGame()
-        this.startNewRound(wheel, board)
-        
+        this.startNewRound(wheel, board)   
     }
     startNewRound(wheel, board){
         this.displayRound()
         wheel.SetWheelValue()
         domUpdates.updateAllScore()
-        board.grabPhraseForRound(this)
+        board.grabPhraseForRound(this.gameQuestions)
         board.placeClueOnTheGame()
         board.placePhraseOnBoard() 
         console.log(board.roundPhrase)
     }
     resetRound(game){
+            domUpdates.resetRound()
         if(this.gameround === "Four"){
             game.bonus = new Bonus()
             game.bonus.grabPlayer(game)
             game.bonus.grabPhrase()
             game.bonus.giveLetters()
+            domUpdates.displayBonusOption(game.bonus.bonusPlayer)
             domUpdates.displayRoundPhrase(game.bonus.bonusPhrase)
             domUpdates.displayRoundClue(game.bonus.bonusPhrase)
             domUpdates.lettersPick(game.bonus.lettersGiven)
-            console.log(game.bonus.lettersGiven)
+            game.bonus.displayPickLetter()
+            console.log(game.bonus.bonusPhrase)
         }else{
             this.changeRound()
-            domUpdates.resetRound()
             game.board.usedLetter = []
             this.startNewRound(game.wheel, game.board)
         }
@@ -72,7 +69,6 @@ export default class Round{
             acc.push(array.pop());
             return acc;
         }, [])
-        console.log("hello world how re ho", this.gameQuestions)
     }
 }
 
@@ -83,15 +79,19 @@ class Bonus extends Round{
 		this.lettersGiven = [];
 		this.bonusWheelValue = [1,10000,20000, 500, 5000, 30000];
 		this.bonusPhrase;
-		this.bonusPlayer;
+        this.bonusPlayer;
+        this.bonusPoint;
+        this.guesses = 3;
 	}
 	grabPlayer(game){
-		this.bonusPlayer = game.player.sort((numa, numb) => {
+		let playerPlaces = game.player.sort((numa, numb) => {
 			return numb.bank - numa.bank
-		}).shift()
+        })
+        domUpdates.displayWinner(playerPlaces)
+        this.bonusPlayer = playerPlaces.shift()
 	}
 	grabPhrase(){
-		let numb = Math.floor(Math.random() * 24)
+		let numb = Math.floor(Math.random() * 23)
 		this.bonusPhrase = data.puzzles.four_word_answers.puzzle_bank[numb]
 	}
 	giveLetters(){
@@ -100,14 +100,37 @@ class Bonus extends Round{
 			this.lettersGiven.push(this.letters.splice(numb, 1).join(""))
 		}
 	}
-	// displayMethod(){
-	// 	domUpdates.
-	// }
-
-	// displayWheel(){
-	// 	domUpdates
-	// }
-	// displayPlayerPick(){
-	// 	domUpdates
-	// }
+	displayPickLetter(){
+        $(this.lettersGiven).each((i, letter) => {
+            domUpdates.flipCard(letter); 
+        })
+        setTimeout(() => {
+            domUpdates.dispalyBonusWheel()
+        }, 2000)
+    }
+	BonusRoundWheel(){
+        let num = Math.floor(Math.random() * 6)
+        this.bonusPoint = this.bonusWheelValue[num]
+		domUpdates.dispalyBonusWheel()
+    }
+    displayPlayersPickLetter(letter){
+        let array = letter.split('')
+        $(array).each((i, letter) => {
+            domUpdates.flipCard(letter); 
+        })
+    }
+	bonusCheckAnswer(input){
+       if( input.toLowerCase() === this.bonusPhrase.correct_answer.toLowerCase()){
+           this.bonusPlayer.bank += this.bonusPoint
+           domUpdates.displayEnd(this.bonusPlayer)
+           $(".guess-bonus-section").remove()
+       }else if(input !== this.bonusPhrase.correct_answer && this.guesses > 1){
+            this.guesses--
+            $(".guess-bonus-section").remove()
+            domUpdates.displayBonusphrase(this.guesses)
+       }else{
+            $(".guess-bonus-section").remove()
+           domUpdates.displayEnd(this.bonusPlayer)
+       }
+	 }
 }

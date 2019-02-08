@@ -1,15 +1,9 @@
-import Game from "./Game.js";
-import data from "./data.js"
-import Wheel from "./Wheel.js";
-import Round from "./Round.js";
 import $ from 'jquery';
-import Board from "./Board.js";
 
 import wheel from "./images/wheel.png"
 import rocket from "./images/rocket.png"
 
 export default {
-	// this is dom for displaying the name and changing the score 
 	displayname(game){
 		$(".input").remove()
 		$("#player-name").remove()
@@ -18,21 +12,18 @@ export default {
 			$(".display-score").eq(i).text(game.player[i].account)
 		}
 	},
-	// this is going to display the round clue
 	displayRoundClue(clue){
 		$(".clue-banner").text(clue.category)
 	},
-	// this is going to display the round phrase
 	displayRoundPhrase(phrase){
-		let word = phrase.correct_answer.split('-').join(' ')
+		let word = phrase.correct_answer.split(/ -/).join(' ')
 		for(var i = 12; i < 12 + word.length; i++){
-			$(".back-face").eq(i).text(word.split('')[i - 12])
-			if(word.split('')[i - 12] !== ' '){
-			$(".front-face").eq(i).css("background-color", "white")[i - 12]
+				$(".back-face").eq(i).text(word.split('')[i - 12])
+			if(word.split('')[i - 12] !== " " ){
+				$(".front-face").eq(i).css("background-color", "white")[i - 12]
 			}
 		}	
 	},
-	// this is dom for displaying the round
 	displayRound(round){
 		let div = $(
 			`<div class="round-display">
@@ -47,7 +38,6 @@ export default {
 			$(".option").prop("disabled",false);
 		}, 5000)
 	},
-	// this is dom for the three buttons
 	displayOption(){
 		let div = $(
 			`<div class="option-display">
@@ -58,7 +48,6 @@ export default {
 		);
 		$(".letters-board").append(div);
 	},
-	// this is dom for the guess the whole phrase
 	displayGuessphrase(){
 		let div = $(
 			`<section class="guess-phrase-section">
@@ -72,7 +61,6 @@ export default {
 	closePhraseGuess(){
 		$(".guess-phrase-section").remove()
 	},
-	//this is the dom for buy a value 
 	dispalyBuyVowel(game){
 		let div = $(
 				`<section class="buy-vowel-section">
@@ -91,7 +79,6 @@ export default {
 	removeVowelDisplay(){
 		$(".buy-vowel-section").remove()
 	},
-	// this is dom for the wheel
 	displayWheel(){
 		let div = $(
 			`<section class="wheel-section">
@@ -159,20 +146,6 @@ export default {
 			$(card).css("transform", "")
 		})
 	},
-	displayRoundPhraseTwo(arrayone, arraytwo, indexone, indextwo){
-		for(var i = indexone; i < indexone + arrayone.length; i++){
-			$(".back-face").eq(i).text(arrayone.split('')[i - indexone])
-			if(arrayone.split('')[i - indexone] !== ' '){
-			$(".front-face").eq(i).css("background-color", "white")[i - indexone]
-			}
-		}
-		for(var i = indextwo; i < indextwo + arraytwo.length; i++){
-			$(".back-face").eq(i).text(arraytwo.split('')[i - indextwo])
-			if(arraytwo.split('')[i - indextwo] !== ' '){
-			$(".front-face").eq(i).css("background-color", "white")[i - indextwo]
-			}
-		}
-	},
 	moveAlien(game){
 		$(".alien-ship").css("transform", "")
 		if(game.playerInPlay === 0){
@@ -188,5 +161,76 @@ export default {
 	},
 	lettersPick(letters){
 		$(".display-used-letters").text(letters.join(''))
+	},
+	dispalyBonusWheel(){
+		let div = $(
+			`<section class="wheel-section">
+				<div class="wheel">
+					<img class="wheelpic" src=${wheel}/>
+				</div>
+				<button class="bonus-spin-button">SPIN</button>
+			</section>`
+		);
+		$("body").append(div);
+	},
+	displayPickBonusLetter(){
+		let div = $(
+			`<section class="bonus-letter-section">
+				<form>
+					<input type="text" class="letter">
+				</form>
+			</section>`
+		);
+		$("body").append(div);
+		$(".bonus-button").prop("disabled",true);
+	},
+	displayWinner(player){
+		let div = $(
+			`<section class="players-places">
+				<h2>Players Places</h2>
+			</section>`
+		);
+		$("body").append(div);
+		$(player).each((i, player) => {
+				$('.players-places').append($(
+					`<div class="player-score-container">
+						<h3>${player.name} ${player.bank}</h3>
+					</div>`
+				))
+		})
+		setTimeout(() => {
+			$('.players-places').remove()
+		}, 2000)
+	}, 
+	displayBonusOption(player){
+		$(".box").hide()
+		let divplayer = $(`
+			<div class="box">
+				<p class="display-name">${player.name}</p>
+				<p class="display-score">${player.bank}</p>
+             </div>
+		`)
+		$('.option-display').remove()
+		$('.player-display-board').append(divplayer);
+	},
+	displayBonusphrase(tries){
+		let div = $(
+			`<section class="guess-bonus-section">
+				<h2>Guess The Phrse</h2>
+				<h3>${tries} guess left</h3>
+				<input type="text" class="guess-bonus"/>
+				<button class="bonus-submit-guess">Submit</button>
+			</section>`
+		)
+		$("body").append(div);
+	},
+	displayEnd(player){
+		let div = $(
+			`<section class="guess-bonus-section">
+				<h2>${player.name}</h2>
+				<h2>${player.bank}</h2>
+			</section>`
+		)
+		$("body").append(div);
 	}
 }

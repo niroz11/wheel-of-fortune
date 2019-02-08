@@ -8,9 +8,6 @@ describe('Player', function() {
     beforeEach(() =>{
         player = new Player()
     })
-    it("should pass the test", () => {
-        expect(true).to.equal(true)
-    })
     it("should be a object", () => {
         expect(player).to.be.an('object');
     })

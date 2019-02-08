@@ -1,4 +1,3 @@
-
 import domUpdates from "./Dom.js";
 
 class Wheel{
@@ -21,6 +20,10 @@ class Wheel{
 	spinWheel(game){
 		let valuePick = Math.floor(Math.random() * 6);
 		let wheelSpin =  valuePick * (Math.ceil(Math.random() * 3) * 360);
+		this.wheelanimation(wheelSpin, valuePick, game)
+		this.spinValue = this.currentWheelValue[valuePick];
+	};
+	wheelanimation(wheelSpin, valuePick, game){
 		domUpdates.spinAnimation(wheelSpin);
 		setTimeout(() => {
 			domUpdates.displayWheelValue(this.currentWheelValue[valuePick])
@@ -29,8 +32,7 @@ class Wheel{
 			this.determinePlayer(game)
 			domUpdates.removeWheel()
 		}, 7000);
-		this.spinValue = this.currentWheelValue[valuePick];
-	};
+	}
 	determinePlayer(game){
 		if(this.spinValue === "BANKRUPT"){
 			game.player[game.playerInPlay].account = 0
